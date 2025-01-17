@@ -21,7 +21,7 @@ export default function Index() {
         muted
         loop={true}
       >
-      <source src="/22sec.mp4" type="video/mp4"/>
+      <source src="public/22sec.mp4" type="video/mp4"/>
       </video>
     </div>
   );
