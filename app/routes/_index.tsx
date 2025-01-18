@@ -12,9 +12,33 @@ export const meta: MetaFunction = () => {
 export default function Index()
 {
   const [dayState, setDayState] = useState("");
-  const [ monthState, setMonthState] = useState("");
+  const [monthState, setMonthState] = useState("");
   const [dateState, setDateState] = useState(0);
   const [currentTimeState, setCurrentTimeState] = useState("");
+  const [isFirstClick,  setIsFirstClick] = useState(false);
+
+  //Add event listeners to listen for mouse and keyboard events
+  useEffect(() => {
+
+    const handleMouseClick = (event:MouseEvent) =>{
+      setIsFirstClick(true);
+    }
+
+    const handleEnterClick = (event: KeyboardEvent) => {
+      if(event.key == "Enter" && isFirstClick == false){
+        setIsFirstClick(true);
+      }
+    }
+
+  document.addEventListener("click", handleMouseClick);
+  document.addEventListener("keydown", handleEnterClick);
+
+  return () => {
+    document.removeEventListener("click", handleMouseClick);
+    document.removeEventListener("keydown", handleEnterClick);
+  };
+}, []);
+
 
   const updateTime = () =>
   {
@@ -57,15 +81,27 @@ export default function Index()
       >
         <source src="/22sec.mp4" type="video/mp4" />
       </video>
-      <div className="overlay-upperpart">
-        <div className="overlay-upperpart__textwrapper">
-            <h1 className="overlay-upperpart__heading">{dayState}, {monthState} {dateState}</h1>
-            <p className="overlay-upperpart__time">{currentTimeState}</p>
+      <div className="content-wrapper-upperpart">
+        <div className="overlay-upperpart">
+          <div className="overlay-upperpart__textwrapper">
+              <h1 className="overlay-upperpart__heading">{dayState}, {monthState} {dateState}</h1>
+              <p className="overlay-upperpart__time">{currentTimeState}</p>
+          </div>
         </div>
       </div>
-      {/* <div className="overlay_lowerPart-container">
-
-      </div> */}
+      <div className="content-wrapper-lowerpart">
+      <div className="overlay-lowerpart">
+          <div className="overlay-lowerpart__imgcontainer">
+            <img className="overlay-lowerpart__img"src="/basketball.png"
+            />
+            <p className="overlay-lowerpart__text-username">sid</p>
+            <input className={`overlay-lowerpart__input ${isFirstClick ? "visible" : "hidden"}`} type="password" placeholder="Enter a password">
+            </input>
+            <p className="overlay-lowerpart__text-info">Touch ID or Enter Password</p>
+          </div>
+      </div>
+      </div>
   </div>
+  
   );
 }

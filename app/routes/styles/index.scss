@@ -22,16 +22,20 @@
     z-index: 1;
   }
 
+  .content-wrapper-upperpart {
+    position: absolute;
+    top: 8vh; /* Adjust this value to control the space from the top */
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block; /* This allows the wrapper to shrink-wrap its contents */
+    z-index: 2;
+    mix-blend-mode: screen;
+    opacity: 0.86;
+  }
+
   .overlay-upperpart{
-
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        transform: translateY(-16.9rem);
-        mix-blend-mode: screen;
-        opacity: 0.86;
     
-
+    mix-blend-mode: screen;
     &__textwrapper{
         display: flex;
         flex-direction: column;
@@ -46,6 +50,7 @@
         line-height: 1.3; /* Slightly taller for readability */
         text-align: center;
         color:white;
+        
     }
     &__time{
         font-family: "SF-Pro Medium", -apple-system, BlinkMacSystemFont;
@@ -54,44 +59,94 @@
         line-height: 1; /* Remove extra line height */
         text-align: center; /* Center the text */
         color:white;
+        mix-blend-mode: screen;
     }
   }
 
-  .overlay-content {
-    position: relative;
+  .content-wrapper-lowerpart{
+    position: absolute;
+    bottom: 14vh;
+    // display: inline-block; /* This allows the wrapper to shrink-wrap its contents */
+    display:flex;
+    line-height: 1.4rem;
     z-index: 2;
-    text-align: center;
-    transform: translateY(-16.9rem);
-    mix-blend-mode: screen;
-    opacity: 0.86;
-  }
-  
-  .overlay-time {
-    font-family: "SF-Pro Medium", -apple-system, BlinkMacSystemFont;
-    font-size: 7.5rem; /* Large font size for time */
-    font-weight: bolder; /* Light weight */
-    line-height: 1; /* Remove extra line height */
-    text-align: center; /* Center the text */
-    color:white;
-  }
-  
-  /* Heading (date text) */
-  .overlay-heading {
-    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
-    font-size: 1.65rem;
-    font-weight: 500; /* Regular weight */
-    margin: 0; /* Remove default margin */
-    line-height: 1.3; /* Slightly taller for readability */
-    text-align: center;
-    color:white;
-  }
-  
-  /* Text wrapper for heading and time */
-  .text-wrapper {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0; /* No space between heading and time */
+    text-align: center;
+    line-height: 1rem;
+    width:fit-content;
+    transform: translateX(15%);
   }
 
+.overlay-lowerpart__input.hidden {
+  visibility: hidden; /* Keep space, hide visually */
+  opacity: 0; /* Fully transparent */
+  pointer-events: none; /* Prevents interaction when hidden */
+}
 
+.overlay-lowerpart__input.visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+  .overlay-lowerpart{
+        position: relative;
+        // z-index: 3;
+        // text-align: center;
+        // transform: translateY(15rem);
+        
+
+    &__imgcontainer{
+      max-width:75px;
+      max-height:75px;
+    }
+
+    &__img{
+      width: 70%;
+      height: 70% ;
+      object-fit: contain;
+    }
+
+    &__text-username{
+      font-family: "SF-Pro Medium";
+      color:white;
+      margin-right: 1.5rem;
+      margin-top: 1.25rem;
+      font-size: 1.4rem;
+      font-weight: 350;
+    }
+
+    &__text-info{
+      font-family: "SF-Pro Medium";
+      color:white;
+      opacity: 0.8;
+      font-weight: 590;
+      margin-top: 2.5rem;
+      margin-left: -4.1rem;
+      font-size: 1rem;
+      width:11.375rem;
+      text-align: start;
+    }
+
+    &__input{
+      margin-top: 1rem;
+      margin-left: -4.0rem;
+      border-radius: 4rem;
+      max-width:11rem;
+      max-height: 1.64rem;
+      background-color: rgba(255, 255, 255, 0.73); /* White color with 70% opacity */
+      color: white; /* Black text color for contrast */
+      border: none; /* Remove default border */
+      padding: 0.5rem 0.8rem; /* Add padding for better usability */
+      font-size: 1rem; /* Adjust font size */
+      backdrop-filter: blur(0.3px); /* Add blur effect */
+      outline: none; /* Remove the default outline */
+      transition: opacity 0.3s ease; /* Smooth transition for opacity */
+      // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    }
+    
+  }
+
+  // input[type="text"]::placeholder {
+  //   color: white;
+  // }
