@@ -1,0 +1,97 @@
+@import url("./fonts.css");
+/* index.css */
+
+/* Base styles for the full-screen container */
+.full-screen-container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a; /* Equivalent to bg-gray-900 */
+    position: relative;
+  }
+  
+  /* Styles for the video element */
+  .background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Equivalent to object-cover */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .overlay-upperpart{
+
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        transform: translateY(-16.9rem);
+        mix-blend-mode: screen;
+        opacity: 0.86;
+    
+
+    &__textwrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0; /* No space between heading and time */
+    }
+    &__heading{
+        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+        font-size: 1.65rem;
+        font-weight: 500; /* Regular weight */
+        margin: 0; /* Remove default margin */
+        line-height: 1.3; /* Slightly taller for readability */
+        text-align: center;
+        color:white;
+    }
+    &__time{
+        font-family: "SF-Pro Medium", -apple-system, BlinkMacSystemFont;
+        font-size: 7.5rem; /* Large font size for time */
+        font-weight: bolder; /* Light weight */
+        line-height: 1; /* Remove extra line height */
+        text-align: center; /* Center the text */
+        color:white;
+    }
+  }
+
+  .overlay-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    transform: translateY(-16.9rem);
+    mix-blend-mode: screen;
+    opacity: 0.86;
+  }
+  
+  .overlay-time {
+    font-family: "SF-Pro Medium", -apple-system, BlinkMacSystemFont;
+    font-size: 7.5rem; /* Large font size for time */
+    font-weight: bolder; /* Light weight */
+    line-height: 1; /* Remove extra line height */
+    text-align: center; /* Center the text */
+    color:white;
+  }
+  
+  /* Heading (date text) */
+  .overlay-heading {
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 1.65rem;
+    font-weight: 500; /* Regular weight */
+    margin: 0; /* Remove default margin */
+    line-height: 1.3; /* Slightly taller for readability */
+    text-align: center;
+    color:white;
+  }
+  
+  /* Text wrapper for heading and time */
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0; /* No space between heading and time */
+  }
+
+

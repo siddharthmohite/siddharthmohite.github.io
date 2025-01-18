@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "SF Pro";
+    src: url("./fonts/SF-Pro-Display-Heavy.otf") format("truetype");
+    font-weight: 400; /* Regular */
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "SF-Pro Medium";
+    src: url("./fonts/SFArabic.ttf") format("truetype");
+    font-style: normal;
+  }
+  
