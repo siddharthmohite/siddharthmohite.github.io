@@ -94,9 +94,18 @@ export default function Index()
           <div className="overlay-lowerpart__imgcontainer">
             <img className="overlay-lowerpart__img"src="/basketball.png"
             />
-            <p className="overlay-lowerpart__text-username">sid</p>
+            {/* <p className="overlay-lowerpart__text-username">sid</p>
             <input className={`overlay-lowerpart__input ${isFirstClick ? "visible" : "hidden"}`} type="password" placeholder="Enter a password">
-            </input>
+            </input> */}
+            {!isFirstClick ? (
+            <p className="overlay-lowerpart__text-username">sid</p>
+              ) : (
+                <input
+                  className="overlay-lowerpart__input"
+                  type="password"
+                  placeholder="Enter a password"
+                />
+              )}
             <p className="overlay-lowerpart__text-info">Touch ID or Enter Password</p>
           </div>
       </div>

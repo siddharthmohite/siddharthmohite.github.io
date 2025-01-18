@@ -68,32 +68,18 @@
     bottom: 14vh;
     // display: inline-block; /* This allows the wrapper to shrink-wrap its contents */
     display:flex;
-    line-height: 1.4rem;
     z-index: 2;
     align-items: center;
     text-align: center;
-    line-height: 1rem;
+    // line-height: 1rem;
     width:fit-content;
     transform: translateX(15%);
   }
 
-.overlay-lowerpart__input.hidden {
-  visibility: hidden; /* Keep space, hide visually */
-  opacity: 0; /* Fully transparent */
-  pointer-events: none; /* Prevents interaction when hidden */
-}
-
-.overlay-lowerpart__input.visible {
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-}
-
   .overlay-lowerpart{
         position: relative;
-        // z-index: 3;
-        // text-align: center;
-        // transform: translateY(15rem);
+        display: flex;
+        line-height: 2.2rem;
         
 
     &__imgcontainer{
@@ -111,7 +97,6 @@
       font-family: "SF-Pro Medium";
       color:white;
       margin-right: 1.5rem;
-      margin-top: 1.25rem;
       font-size: 1.4rem;
       font-weight: 350;
     }
@@ -121,7 +106,6 @@
       color:white;
       opacity: 0.8;
       font-weight: 590;
-      margin-top: 2.5rem;
       margin-left: -4.1rem;
       font-size: 1rem;
       width:11.375rem;
@@ -129,7 +113,6 @@
     }
 
     &__input{
-      margin-top: 1rem;
       margin-left: -4.0rem;
       border-radius: 4rem;
       max-width:11rem;
@@ -142,11 +125,6 @@
       backdrop-filter: blur(0.3px); /* Add blur effect */
       outline: none; /* Remove the default outline */
       transition: opacity 0.3s ease; /* Smooth transition for opacity */
-      // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
     }
     
   }
-
-  // input[type="text"]::placeholder {
-  //   color: white;
-  // }
