@@ -1,7 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useEffect, useRef, useState } from "react";
-import "/app/routes/styles/index.scss"; // Import the CSS file
-
+import { useNavigate } from "@remix-run/react";
+import "/app/routes/styles/index.scss";
+import CircleRightIcon from './icons/CircleRightIcon'
 export const meta: MetaFunction = () => {
   return [
     { title: "Sid's" },
@@ -11,11 +12,17 @@ export const meta: MetaFunction = () => {
 
 export default function Index()
 {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [dayState, setDayState] = useState("");
   const [monthState, setMonthState] = useState("");
   const [dateState, setDateState] = useState(0);
   const [currentTimeState, setCurrentTimeState] = useState("");
   const [isFirstClick,  setIsFirstClick] = useState(false);
+  const [shake, setShake] = useState(false);
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Initialize navigate hook
+
 
   //Add event listeners to listen for mouse and keyboard events
   useEffect(() => {
@@ -27,6 +34,11 @@ export default function Index()
     const handleEnterClick = (event: KeyboardEvent) => {
       if(event.key == "Enter" && isFirstClick == false){
         setIsFirstClick(true);
+      }
+      if(event.key == "Enter" && isFirstClick == true){
+        if(password == "Hireme"){
+          navigate("/")
+        }
       }
     }
 
@@ -54,6 +66,18 @@ export default function Index()
     setCurrentTimeState(current_time);
   }
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) =>{
+    if(event.key === "Enter" && isFirstClick){
+        if(password === "Hireme"){
+          navigate("/homepage");
+        }
+        else{
+            setShake(true); // Trigger the shake effect
+            setTimeout(() => setShake(false), 300); // Remove the shake class after 300ms
+        }
+    }
+  }
+
   useEffect( () =>
   {
     updateTime();
@@ -65,11 +89,12 @@ export default function Index()
     };
   },[]);
 
+  useEffect(() => {
+    if (isFirstClick && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isFirstClick]);
   
-  
-
-  const videoRef = useRef<HTMLVideoElement>(null);
-
   return (
   <div className="full-screen-container">
       <video
@@ -94,23 +119,27 @@ export default function Index()
           <div className="overlay-lowerpart__imgcontainer">
             <img className="overlay-lowerpart__img"src="/basketball.png"
             />
-            {/* <p className="overlay-lowerpart__text-username">sid</p>
-            <input className={`overlay-lowerpart__input ${isFirstClick ? "visible" : "hidden"}`} type="password" placeholder="Enter a password">
-            </input> */}
             {!isFirstClick ? (
             <p className="overlay-lowerpart__text-username">sid</p>
               ) : (
                 <input
-                  className="overlay-lowerpart__input"
+                  ref = {inputRef}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  className={`overlay-lowerpart__input ${shake ? "shake" : ""}`}
                   type="password"
-                  placeholder="Enter a password"
                 />
+              )}
+              {isFirstClick && password && (
+                <span className="right-icon">
+                  <CircleRightIcon />
+                </span>
               )}
             <p className="overlay-lowerpart__text-info">Touch ID or Enter Password</p>
           </div>
       </div>
       </div>
   </div>
-  
   );
 }

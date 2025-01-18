@@ -58,7 +58,7 @@
         font-weight: bolder; /* Light weight */
         line-height: 1; /* Remove extra line height */
         text-align: center; /* Center the text */
-        color:white;
+        color:rgba(245, 245, 255);
         mix-blend-mode: screen;
     }
   }
@@ -117,10 +117,11 @@
       border-radius: 4rem;
       max-width:11rem;
       max-height: 1.64rem;
-      background-color: rgba(255, 255, 255, 0.73); /* White color with 70% opacity */
+      background-color: rgba(245, 245, 245, 0.7); /* White color with 70% opacity */
       color: white; /* Black text color for contrast */
       border: none; /* Remove default border */
       padding: 0.5rem 0.8rem; /* Add padding for better usability */
+      padding-right: 2rem;
       font-size: 1rem; /* Adjust font size */
       backdrop-filter: blur(0.3px); /* Add blur effect */
       outline: none; /* Remove the default outline */
@@ -128,3 +129,39 @@
     }
     
   }
+  .shake {
+    animation: shake 0.25s ease-in-out;
+  }
+
+  .right-icon {
+    position: absolute;
+    right: -1.85rem;
+    top: 75.7%;
+    // transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* Prevent icon from interfering with input */
+    color: #888; /* Adjust icon color */
+  }
+
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-7px);
+    }
+    50% {
+      transform: translateX(7px);
+    }
+    75% {
+      transform: translateX(-7px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  
