@@ -68,8 +68,11 @@ export default function Index()
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) =>{
     if(event.key === "Enter" && isFirstClick){
-        if(password === "Hireme"){
-          navigate("/homepage");
+        if(password === "Hireme" && videoRef.current){
+          const timestamp = videoRef.current.currentTime;
+          navigate("/homepage", {
+            state: { timestamp }, // Pass timestamp as state
+          });
         }
         else{
             setShake(true); // Trigger the shake effect
