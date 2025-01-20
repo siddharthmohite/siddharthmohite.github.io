@@ -141,8 +141,8 @@ export default function homepage(){
           width:"800px",
           height: "600px",
           zIndex: 10,
-          backgroundColor: "rgba(50, 50, 51, 0.9)", // Background color
-          paddingTop: "19px",
+          backgroundColor: "rgba(50, 50, 51, 0.95)", // Background color
+          paddingTop: "26px",
           cursor: "grab", // Show grab cursor
           borderRadius: "5px",
         }}
