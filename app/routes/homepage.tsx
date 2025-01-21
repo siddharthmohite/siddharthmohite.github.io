@@ -142,12 +142,23 @@ export default function homepage(){
           height: "600px",
           zIndex: 10,
           backgroundColor: "rgba(50, 50, 51, 0.95)", // Background color
-          paddingTop: "26px",
+          paddingTop: "10px",
           cursor: "grab", // Show grab cursor
           borderRadius: "5px",
         }}
         onMouseDown={handleMouseDown}
         >
+          <div className="frame-wrapper__buttons">
+            <button className="frame-wrapper__button-close">
+            
+            </button>
+            <button className="frame-wrapper__button-minimize">
+              
+            </button>
+            <button className="frame-wrapper__button-maximize">
+              
+            </button>
+          </div>
             <iframe
             id="overlay-topbar__frame"
             />
@@ -170,6 +181,11 @@ export default function homepage(){
                     alt={`Image ${image.id}`} // Accessible alt text
                     data-id={image.id} //
                     className="overlay-downbar__image"></img>
+                    {selectedId == image.id &&(
+                        <div className="overlay-downbar__image-notifier">
+
+                        </div>
+                    )}
                 </div>
             </div>
         ))}
