@@ -14,6 +14,8 @@ export default function homepage(){
     const frameWrapperRef = useRef<HTMLDivElement>(null); // Ref for draggable element
     const [isDragging, setIsDragging] = useState(false);
     const [offset, setOffset] = useState({ x: 0, y: 0 });
+    const [isExpanded, setIsExpanded] = useState(false);
+
 
     const images = [
         { id: 1, src: "/finder.png" },
@@ -39,6 +41,10 @@ export default function homepage(){
           }, 800); // Match animation duration (0.8s)
         }
       };
+    
+    const handlemaximize = () =>{
+      setIsExpanded(!isExpanded);
+    };
 
 
     useEffect(() => {
@@ -136,10 +142,12 @@ export default function homepage(){
         ref={frameWrapperRef}
         style={{
           position: "absolute",
-          top: "80px", // Initial top position
-          left: "400px", // Initial left position
-          width:"800px",
-          height: "600px",
+          top: isExpanded ? "0": "60px", // Initial top position
+          left:isExpanded ? "0": "100px", // Initial left position
+          width: isExpanded ? "100%": "60%",
+          height: isExpanded ? "100%": "650px",
+          maxWidth: isExpanded ? "100vw" : "",
+          maxHeight: isExpanded ? "100vh" : "",
           zIndex: 10,
           backgroundColor: "rgba(50, 50, 51, 0.95)", // Background color
           paddingTop: "10px",
@@ -155,7 +163,9 @@ export default function homepage(){
             <button className="frame-wrapper__button-minimize">
               
             </button>
-            <button className="frame-wrapper__button-maximize">
+            <button
+             onClick={handlemaximize}
+             className="frame-wrapper__button-maximize">
               
             </button>
           </div>
