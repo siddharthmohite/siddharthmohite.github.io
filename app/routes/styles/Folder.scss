@@ -1,0 +1,12 @@
+.folder-image-container{
+    max-width:150px;
+    max-height:150px;
+    z-index:3;
+}
+
+.folder-image{
+    width: 70%;
+    height: 70% ;
+    object-fit: contain;
+    z-index:4;
+}

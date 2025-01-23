@@ -1,10 +1,10 @@
 import "/app/routes/styles/homepage.scss"
-import "app/routes/styles/VsCodeEditor.scss"
+import "app/routes/styles/Folder.scss"
 import AppleLogoIcon from './icons/AppleLogoIcon'
-import VsCodeEditor from './components/VsCodeEditor'
 import { useEffect, useRef, useState } from "react";
 import sdk from "@stackblitz/sdk"
 import { useLocation } from "@remix-run/react";
+import Folder from './components/Folder'
 
 
 export default function homepage(){
@@ -46,6 +46,9 @@ export default function homepage(){
       setIsExpanded(!isExpanded);
     };
 
+    const handleClose = () =>{
+      setSelectedId(null);
+    }
 
     useEffect(() => {
         const { timestamp } = location.state || {}; // Get the timestamp from state
@@ -129,6 +132,7 @@ export default function homepage(){
             },
           );
       }, [selectedId]);
+    
 
     return(
     <div className="homepage-container">
@@ -137,6 +141,9 @@ export default function homepage(){
             className="background-video"
             src="/22sec.mp4"
         />
+        <div className="folder-wrapper">
+          <Folder/>
+        </div>
         <div 
         className={`frame-wrapper ${selectedId === 7 ? "visible" : "hidden"}`}
         ref={frameWrapperRef}
@@ -157,7 +164,9 @@ export default function homepage(){
         onMouseDown={handleMouseDown}
         >
           <div className="frame-wrapper__buttons">
-            <button className="frame-wrapper__button-close">
+            <button
+            onClick={handleClose}
+            className="frame-wrapper__button-close">
             
             </button>
             <button className="frame-wrapper__button-minimize">
@@ -169,7 +178,7 @@ export default function homepage(){
               
             </button>
           </div>
-            <iframe
+          <iframe
             id="overlay-topbar__frame"
             />
         </div>

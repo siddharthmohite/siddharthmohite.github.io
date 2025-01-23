@@ -14,9 +14,13 @@
     "@remix-run/node": "^2.15.2",
     "@remix-run/react": "^2.15.2",
     "@stackblitz/sdk": "^1.11.0",
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
     "isbot": "^4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-xtermjs": "^1.0.9",
+    "terminal-js-emulator": "^3.0.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.15.2",

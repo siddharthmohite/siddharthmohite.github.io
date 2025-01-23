@@ -17,6 +17,13 @@
     z-index: 1;
 }
 
+.folder-wrapper{
+  position:absolute;
+  top: 100px;
+  left: 100px;
+  z-index:6;
+  display: flex;
+}
 .overlay-topbar{
     display:inline-block;
     align-content: center;
