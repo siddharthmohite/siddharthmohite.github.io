@@ -120,7 +120,7 @@ export default function Index()
       <div className="content-wrapper-lowerpart">
       <div className="overlay-lowerpart">
           <div className="overlay-lowerpart__imgcontainer">
-            <img className="overlay-lowerpart__img"src="/basketball.png"
+            <img className="overlay-lowerpart__img"src="/basketball2.png"
             />
             {!isFirstClick ? (
             <p className="overlay-lowerpart__text-username">sid</p>
