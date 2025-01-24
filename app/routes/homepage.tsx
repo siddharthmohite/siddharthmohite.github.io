@@ -12,8 +12,11 @@ export default function homepage(){
     const videoRef = useRef<HTMLVideoElement>(null);
     const [selectedId, setSelectedId] = useState<number | null>(null);
     const frameWrapperRef = useRef<HTMLDivElement>(null); // Ref for draggable element
-    const [isDragging, setIsDragging] = useState(false);
-    const [offset, setOffset] = useState({ x: 0, y: 0 });
+    const folderWrapperRef = useRef<HTMLDivElement>(null); // Ref for draggable element
+    const [isDraggingFrame, setIsDraggingFrame] = useState(false);
+    const [isDraggingFolder, setIsDraggingFolder] =useState(false);
+    const [offSetFolder, setOffSetFolder] = useState({x : 0, y : 0});
+    const [offSetFrame, setOffSetFrame] = useState({ x: 0, y: 0 });
     const [isExpanded, setIsExpanded] = useState(false);
 
 
@@ -24,7 +27,8 @@ export default function homepage(){
         { id: 4, src: "/terminal.png" },
         { id: 5, src: "/chrome.png" },
         { id: 6, src: "/calculator.png" },
-        { id: 7, src: "/vscode.png"}
+        { id: 7, src: "/vscode.png"},
+        { id: 8, src: "/trash.png"}
       ];
 
     const handleImageClick = (id: number) => {
@@ -59,12 +63,26 @@ export default function homepage(){
       }, [location]);
     
       // Drag Handlers for the Window
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseDownFrame = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!frameWrapperRef.current) return;
 
-    setIsDragging(true);
+    setIsDraggingFrame(true);
     const rect = frameWrapperRef.current.getBoundingClientRect();
-    setOffset({
+    setOffSetFrame({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+
+
+    document.body.style.userSelect = "none"; // Prevent text selection during drag
+  };
+
+  const handleMouseDownFolder = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!folderWrapperRef.current) return;
+
+    setIsDraggingFolder(true);
+    const rect = folderWrapperRef.current.getBoundingClientRect();
+    setOffSetFolder({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     });
@@ -72,37 +90,61 @@ export default function homepage(){
     document.body.style.userSelect = "none"; // Prevent text selection during drag
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging || !frameWrapperRef.current) return;
+  
 
-    // Calculate the new position
-    const newX = e.clientX - offset.x;
-    const newY = e.clientY - offset.y;
-
-    // Move the element
+  const handleMouseMoveFrame = (e: MouseEvent) => {
+    if (!frameWrapperRef.current) return;
+  
+    const newX = e.clientX - offSetFrame.x;
+    const newY = e.clientY - offSetFrame.y;
     frameWrapperRef.current.style.left = `${newX}px`;
     frameWrapperRef.current.style.top = `${newY}px`;
   };
+  
+  const handleMouseMoveFolder = (e: MouseEvent) => {
+    if (!folderWrapperRef.current) return;
+  
+    const newX = e.clientX - offSetFolder.x;
+    const newY = e.clientY - offSetFolder.y;
+    folderWrapperRef.current.style.left = `${newX}px`;
+    folderWrapperRef.current.style.top = `${newY}px`;
+  };
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
+  const handleMouseUpFrame = () => {
+    setIsDraggingFrame(false);
+    document.body.style.userSelect = ""; // Re-enable text selection
+  };
+  
+  const handleMouseUpFolder = () => {
+    setIsDraggingFolder(false);
     document.body.style.userSelect = ""; // Re-enable text selection
   };
 
   useEffect(() => {
-    if (isDragging) {
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
+    if (isDraggingFrame) {
+      document.addEventListener("mousemove", handleMouseMoveFrame);
+      document.addEventListener("mouseup", handleMouseUpFrame);
     } else {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("mousemove", handleMouseMoveFrame);
+      document.removeEventListener("mouseup", handleMouseUpFrame);
     }
-
+  
+    if (isDraggingFolder) {
+      document.addEventListener("mousemove", handleMouseMoveFolder);
+      document.addEventListener("mouseup", handleMouseUpFolder);
+    } else {
+      document.removeEventListener("mousemove", handleMouseMoveFolder);
+      document.removeEventListener("mouseup", handleMouseUpFolder);
+    }
+  
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("mousemove", handleMouseMoveFrame);
+      document.removeEventListener("mouseup", handleMouseUpFrame);
+      document.removeEventListener("mousemove", handleMouseMoveFolder);
+      document.removeEventListener("mouseup", handleMouseUpFolder);
     };
-  }, [isDragging]);  
+  }, [isDraggingFrame, isDraggingFolder]);
+  
 
       useEffect(() => {
         
@@ -141,7 +183,11 @@ export default function homepage(){
             className="background-video"
             src="/22sec.mp4"
         />
-        <div className="folder-wrapper">
+        <div
+        ref={folderWrapperRef}
+        className="folder-wrapper"
+        onMouseDown={handleMouseDownFolder}
+        >
           <Folder/>
         </div>
         <div 
@@ -161,7 +207,7 @@ export default function homepage(){
           cursor: "grab", // Show grab cursor
           borderRadius: "5px",
         }}
-        onMouseDown={handleMouseDown}
+        onMouseDown={handleMouseDownFrame}
         >
           <div className="frame-wrapper__buttons">
             <button

@@ -94,7 +94,7 @@
     }
 
     &__text-username{
-      font-family: "SF-Pro Medium";
+      font-family: "SF-Pro Medium", -apple-system, BlinkMacSystemFont;
       color:rgba(245, 245, 255);
       margin-right: 1.5rem;
       font-size: 1.4rem;
@@ -102,12 +102,12 @@
     }
 
     &__text-info{
-      font-family: "SF-Pro Medium";
+      font-family: "SF-Pro Medium", -apple-system, BlinkMacSystemFont;
       color:rgba(245, 245, 255);
       opacity: 0.8;
       font-weight: 590;
       margin-left: -4.1rem;
-      font-size: 1rem;
+      font-size: 0.8rem;
       width:11.375rem;
       text-align: start;
     }

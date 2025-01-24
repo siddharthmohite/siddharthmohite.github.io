@@ -20,9 +20,12 @@
 .folder-wrapper{
   position:absolute;
   top: 100px;
-  left: 100px;
+  left: -10px;
+  max-width:150px;
+  max-height: 150px;
   z-index:6;
   display: flex;
+  cursor:grab
 }
 .overlay-topbar{
     display:inline-block;
@@ -121,7 +124,7 @@
     display:flex;
     flex-direction: row;
     position:absolute;
-    height: 3.5rem;
+    height: 5.0rem;
     width: fit-content;
     max-width:93.5vw;
     z-index: 2;
@@ -133,6 +136,8 @@
     border-radius: 0.75rem;
     align-content: center;
     padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 0.7rem;
 
 
     &__icons-container{
@@ -147,23 +152,22 @@
     &__image-container{
         max-width:63px;
         max-height:63px;
-        z-index:4;
+        z-index:4.5;
       }
     &__image{
-        width: 70%;
-        height: 70% ;
+        width: 100%;
+        height: 100% ;
         object-fit: contain;
         z-index:5;
     }
 
     &__image-notifier{
-        width: 5px;
-        height: 5px;
+        width: 7px;
+        height: 7px;
         border: none;
         border-radius: 50%;
         background-color: black;
-        margin-left: 17px;
-        margin-top: 2px;
+        margin-left: 30px;
     }
 }
 

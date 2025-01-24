@@ -1,12 +1,26 @@
+@import url("./fonts.css");
+
 .folder-image-container{
-    max-width:150px;
-    max-height:150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width:100px;
+    max-height:100px;
     z-index:3;
 }
 
 .folder-image{
-    width: 70%;
-    height: 70% ;
+    width: 100%;
+    height: 100% ;
     object-fit: contain;
     z-index:4;
+}
+
+.folder-name-text{
+    color:white;
+    font-weight: 500;
+    font-family: "SF-Pro Medium", -apple-system, BlinkMacSystemFont;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
+
 }
