@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "@remix-run/react";
 import "/app/routes/styles/index.scss";
 import CircleRightIcon from './icons/CircleRightIcon'
+import QuestionMarkIcon from './icons/QuestionMarkIcon'
 export const meta: MetaFunction = () => {
   return [
     { title: "Sid's" },
@@ -22,6 +23,7 @@ export default function Index()
   const [shake, setShake] = useState(false);
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Initialize navigate hook
+  const [isQuestionMClicked, setIsQuestionMClicked] = useState(false);
 
 
   //Add event listeners to listen for mouse and keyboard events
@@ -81,6 +83,11 @@ export default function Index()
     }
   }
 
+  const handleQuestionMarkClick = () =>{
+
+    setIsQuestionMClicked(true);
+  }
+
   useEffect( () =>
   {
     updateTime();
@@ -135,9 +142,16 @@ export default function Index()
                 />
               )}
               {isFirstClick && password && (
-                <span className="right-icon">
-                  <CircleRightIcon />
-                </span>
+                  <span className="right-icon">
+                    <CircleRightIcon />
+                  </span>
+              )}
+              {isFirstClick && (
+                  <button 
+                  onClick={handleQuestionMarkClick}
+                  className="question-mark">
+                    <QuestionMarkIcon />
+                  </button>
               )}
             <p className="overlay-lowerpart__text-info">Touch ID or Enter Password</p>
           </div>

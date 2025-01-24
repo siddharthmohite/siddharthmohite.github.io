@@ -145,6 +145,20 @@
     color: #888; /* Adjust icon color */
   }
 
+  .question-mark{
+      position: absolute;
+      right: -4.75rem;
+      top: 104.0%;
+      // transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none; /* Prevent icon from interfering with input */
+      color: #888; /* Adjust icon color */
+      cursor:pointer;
+  }
+
+   
 
   @keyframes shake {
     0% {
