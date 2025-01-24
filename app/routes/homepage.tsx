@@ -18,7 +18,6 @@ export default function homepage(){
     const [offSetFolder, setOffSetFolder] = useState({x : 0, y : 0});
     const [offSetFrame, setOffSetFrame] = useState({ x: 0, y: 0 });
     const [isExpanded, setIsExpanded] = useState(false);
-    const [isFolderActive, setIsFolderActive] = useState(false);
 
 
 
@@ -122,24 +121,6 @@ const handleMouseUpFolder = () => {
   document.body.style.userSelect = ""; // Re-enable text selection
 };
 
-const handleFolderClick = (e: React.MouseEvent<HTMLDivElement>) => {
-  e.stopPropagation(); // Prevent the event from bubbling to the document
-  setIsFolderActive(true);
-};
-
-useEffect(() => {
-  const handleOutsideClick = () => {
-    setIsFolderActive(false); // Reset the active state
-  };
-
-  document.addEventListener("click", handleOutsideClick);
-
-  return () => {
-    document.removeEventListener("click", handleOutsideClick);
-  };
-}, []);
-
-
 useEffect(() => {
     if (isDraggingFrame) {
       document.addEventListener("mousemove", handleMouseMoveFrame);
@@ -205,8 +186,7 @@ useEffect(() => {
         />
         <div
         ref={folderWrapperRef}
-        className={`folder-wrapper ${isFolderActive ? "" : "active"}`}
-        onClick={handleFolderClick}
+        className="folder-wrapper"
         onMouseDown={handleMouseDownFolder}
         >
           <Folder/>
