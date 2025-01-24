@@ -20,13 +20,21 @@
 .folder-wrapper{
   position:absolute;
   top: 100px;
-  left: -10px;
+  left: 10px;
   max-width:150px;
   max-height: 150px;
   z-index:6;
   display: flex;
-  cursor:grab
+  cursor:pointer;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
 }
+
+// .folder-wrapper.active {
+//   // box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5), 0 0 20px 4px rgba(0, 0, 0, 0.7);
+//   border: 1px solid rgba(255, 255, 255, 0.5); /* Thin white border */
+//   background-color: rgba(148, 150, 149); /* Light black background */
+//   border-radius: 5px; /* Optional: adds rounded corners to the box */
+// }
 .overlay-topbar{
     display:inline-block;
     align-content: center;
