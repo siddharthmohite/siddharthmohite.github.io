@@ -24,6 +24,7 @@ export default function Index()
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Initialize navigate hook
   const [isQuestionMClicked, setIsQuestionMClicked] = useState(false);
+  const [isQuestionHovered, setIsQuestionHovered] = useState(false);
 
 
   //Add event listeners to listen for mouse and keyboard events
@@ -85,7 +86,7 @@ export default function Index()
 
   const handleQuestionMarkClick = () =>{
 
-    setIsQuestionMClicked(true);
+    setIsQuestionMClicked(!isQuestionMClicked);
   }
 
   useEffect( () =>
@@ -104,6 +105,7 @@ export default function Index()
       inputRef.current.focus();
     }
   }, [isFirstClick]);
+
   
   return (
   <div className="full-screen-container">
@@ -127,8 +129,15 @@ export default function Index()
       <div className="content-wrapper-lowerpart">
       <div className="overlay-lowerpart">
           <div className="overlay-lowerpart__imgcontainer">
-            <img className="overlay-lowerpart__img"src="/basketball2.png"
-            />
+              {isQuestionMClicked ? (
+                <div className="overlay-lowerpart__hint">
+                  <span className="overlay-lowerpart__hint-text">Password Hint</span>
+                  <span className="overlay-lowerpart__pass-text">Hireme</span>
+                </div>
+              ) : (
+                    <img className="overlay-lowerpart__img"src="/basketball2.png"
+                    />
+              )}
             {!isFirstClick ? (
             <p className="overlay-lowerpart__text-username">sid</p>
               ) : (
@@ -149,8 +158,14 @@ export default function Index()
               {isFirstClick && (
                   <button 
                   onClick={handleQuestionMarkClick}
+                  onMouseEnter={() => {
+                    setIsQuestionHovered(true); 
+                  }}
+                  onMouseLeave={() => {
+                    setIsQuestionHovered(false);
+                  }}
                   className="question-mark">
-                    <QuestionMarkIcon />
+                    <QuestionMarkIcon fill={isQuestionHovered ? "white" : "rgba(245,245,247,0.7)"} />
                   </button>
               )}
             <p className="overlay-lowerpart__text-info">Touch ID or Enter Password</p>

@@ -128,6 +128,26 @@
       transition: opacity 0.3s ease; /* Smooth transition for opacity */
     }
     
+    &__hint{
+      display: flex;
+      flex-direction: column;
+      gap:0.1rem;
+      margin-bottom: 1.536rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__hint-text{
+      color: rgba(167, 167, 167, 0.7);
+      font-size: 1.1rem;
+      font-family: "SF-Pro Medium", -apple-system, BlinkMacSystemFont;
+      font-weight: 600;
+      width: 8rem;
+    }
+    &__pass-text{
+      color:white;
+      font-size: 1rem;
+    }
   }
   .shake {
     animation: shake 0.25s ease-in-out;
@@ -153,10 +173,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      pointer-events: none; /* Prevent icon from interfering with input */
       color: #888; /* Adjust icon color */
-      cursor:pointer;
+      transition: transform 0.3s ease, fill 0.3s ease; // Smooth hover effect for scaling
   }
+
+ 
 
    
 
