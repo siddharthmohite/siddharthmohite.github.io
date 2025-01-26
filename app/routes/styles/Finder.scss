@@ -1,0 +1,82 @@
+.container{
+    // display: flex;
+    // flex-direction:row;
+    left:50%;
+    // justify-content: flex-start;
+    // align-items: flex-start;
+    top:50%;
+    width:50vw;
+    height:55vh;
+    background-color: white;
+    z-index:2;
+    border-radius: 12px;
+    mix-blend-mode: screen;
+    backdrop-filter: blur(15px);
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 9rem;
+    background: rgba(164, 162, 162, 0.2);
+    height:100%;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    z-index:3;
+    
+    &__buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 0.6rem;
+        z-index:4;
+        margin: 1.5rem;
+    }
+
+    &__buttons-close{
+      width: 13px;
+      height: 13px;
+      border:none;
+      border-radius: 50%;
+      background-color: rgb(246, 85, 71);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor:default;
+      z-index:5;
+    }
+
+
+    &__buttons-min{
+        width: 13px;
+        height: 13px;
+        border:none;
+        border-radius: 50%;
+        background-color: rgb(252, 189, 65);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor:default;
+    }
+
+
+    &__buttons-max{
+      width: 13px;
+      height: 13px;
+      border:none;
+      border-radius: 50%;
+      background-color: rgb(86, 208, 70);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor:default;
+    }
+
+    &__favorites-text{
+        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+        margin-left: 1rem;
+        color: rgb(149, 149, 141);
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+}

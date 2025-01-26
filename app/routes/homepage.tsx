@@ -1,10 +1,12 @@
 import "/app/routes/styles/homepage.scss"
 import "app/routes/styles/Folder.scss"
+import "app/routes/styles/Finder.scss"
 import AppleLogoIcon from './icons/AppleLogoIcon'
 import { useEffect, useRef, useState } from "react";
 import sdk from "@stackblitz/sdk"
 import { useLocation } from "@remix-run/react";
 import Folder from './components/Folder'
+import Finder from './components/Finder'
 
 
 export default function homepage(){
@@ -184,6 +186,10 @@ useEffect(() => {
             className="background-video"
             src="/22sec.mp4"
         />
+        {( selectedId == 1 &&
+          <Finder/>
+        )}
+        
         <div
         ref={folderWrapperRef}
         className="folder-wrapper"
