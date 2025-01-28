@@ -13,7 +13,7 @@ export default function(){
                         fill="#005ed9" 
                         fillRule="nonzero" // Replaced "fill-rule" with "fillRule"
                         stroke="none" 
-                        strokeWidth="1" // Replaced "stroke-width" with "strokeWidth"
+                        strokeWidth="10" // Replaced "stroke-width" with "strokeWidth"
                         strokeLinecap="butt" // Replaced "stroke-linecap" with "strokeLinecap"
                         strokeLinejoin="miter" // Replaced "stroke-linejoin" with "strokeLinejoin"
                         strokeMiterlimit="10" // Replaced "stroke-miterlimit" with "strokeMiterlimit"

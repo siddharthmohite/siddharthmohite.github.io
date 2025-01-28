@@ -22,7 +22,6 @@
     height: 55vh;
     z-index: 2;
     border-radius: 12px;
-    /* Remove mix-blend-mode and backdrop-filter from here */
 }
 
 /* Add pseudo-element for blending */
@@ -32,7 +31,7 @@
     inset: 0; /* Covers the entire container */
     background-color: white;
     mix-blend-mode: screen;
-    backdrop-filter: blur(10px);
+    // backdrop-filter: blur(1px);
     border-radius: 12px;
 }
 .sidebar{
@@ -104,14 +103,15 @@
     &__folder-item{
         display: flex;
         flex-direction: row;
-        gap: 0.5rem;
-        margin-top: 0.6rem;
-        margin-left: 0.6rem;
-        margin-right: 0.6rem;
+        gap: 0.35rem;
+        margin: 0.6rem; /* Combine margins */
         align-items: center;
         min-width: 0;
-        box-sizing: border-box; // Include padding in width calculation
-        border: 2px solid transparent; // Reserve space for selected state
+        box-sizing: border-box;
+        border: 2px solid transparent;
+        padding: 3.5px; /* Add consistent padding */
+        border-radius: 5px; /* Add here to match selected state */
+        mix-blend-mode: screen;
     }
 
     &__folder-item-text{
@@ -130,9 +130,6 @@
 
 
 .sidebar__folder-item.selected{
-    background: rgba(182, 182, 184);
-    border: 2px solid rgba(182, 182, 184); // Use same color as background
-    padding: 2px;
-    border-radius: 5px; // Match your design
+    background: rgba(182, 182, 184,0.5);
 
 }

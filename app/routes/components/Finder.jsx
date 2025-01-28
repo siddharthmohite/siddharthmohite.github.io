@@ -3,7 +3,7 @@ import FolderIcon from '../icons/FolderIcon'
 import { useState } from 'react';
 
 export default function Finder(){
-const [selectedFolderId, setSelectedFolderId] = useState(null);
+const [selectedFolderId, setSelectedFolderId] = useState(1);
 
 const folders = [
 
