@@ -5,8 +5,8 @@ export default function(){
                     xmlns="http://www.w3.org/2000/svg" 
                     x="0px" 
                     y="0px" 
-                    width="100" 
-                    height="100" 
+                    width="15" 
+                    height="15" 
                     viewBox="0 0 256 256" // Corrected attribute for viewBox
                 >
                     <g 

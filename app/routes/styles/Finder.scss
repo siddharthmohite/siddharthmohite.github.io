@@ -1,20 +1,42 @@
-.container{
-    // display: flex;
-    // flex-direction:row;
-    left:50%;
-    // justify-content: flex-start;
-    // align-items: flex-start;
-    top:50%;
-    width:50vw;
-    height:55vh;
-    background-color: white;
-    z-index:2;
+// .container{
+//     // display: flex;
+//     // flex-direction:row;
+//     left:50%;
+//     // justify-content: flex-start;
+//     // align-items: flex-start;
+//     top:50%;
+//     width:50vw;
+//     height:55vh;
+//     background-color: white;
+//     z-index:2;
+//     border-radius: 12px;
+//     mix-blend-mode: screen;
+//     backdrop-filter: blur(15px);
+// }
+.container {
+    position: fixed; /* Add this */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 55vh;
+    z-index: 2;
     border-radius: 12px;
-    mix-blend-mode: screen;
-    backdrop-filter: blur(15px);
+    /* Remove mix-blend-mode and backdrop-filter from here */
 }
 
+/* Add pseudo-element for blending */
+.container::before {
+    content: '';
+    position: absolute;
+    inset: 0; /* Covers the entire container */
+    background-color: white;
+    mix-blend-mode: screen;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+}
 .sidebar{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 9rem;
@@ -78,5 +100,39 @@
         font-size: 0.8rem;
         font-weight: 600;
     }
+
+    &__folder-item{
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        margin-top: 0.6rem;
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+        align-items: center;
+        min-width: 0;
+        box-sizing: border-box; // Include padding in width calculation
+        border: 2px solid transparent; // Reserve space for selected state
+    }
+
+    &__folder-item-text{
+        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+        color: rgb(0,0,0);
+        font-size: 0.8rem;
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        flex: 1; 
+        cursor:pointer;
+        font-weight: 400;
+    }
+
+}
+
+
+.sidebar__folder-item.selected{
+    background: rgba(182, 182, 184);
+    border: 2px solid rgba(182, 182, 184); // Use same color as background
+    padding: 2px;
+    border-radius: 5px; // Match your design
 
 }

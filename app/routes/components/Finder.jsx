@@ -1,7 +1,9 @@
 
 import FolderIcon from '../icons/FolderIcon'
+import { useState } from 'react';
 
 export default function Finder(){
+const [selectedFolderId, setSelectedFolderId] = useState(null);
 
 const folders = [
 
@@ -31,18 +33,18 @@ const folders = [
                 </span>
                 <div className="sidebar__folder-container">
                 {folders.map((folder) => (
-                    <div 
+                    <div
+                    title={folder.text}
                     key={folder.id}
                     className="sidebar__folder-holder">
-                                <ul className="sidebar__folder-list">
-                                    <div className="sidebar__folder-item">
+                                    <div 
+                                    onClick={() => setSelectedFolderId(folder.id)}
+                                    className={`sidebar__folder-item ${selectedFolderId === folder.id ? 'selected' : ''}`}>
                                         <FolderIcon/>
                                         <span className="sidebar__folder-item-text">
                                             {folder.text}
                                         </span>
-                                    </div>
-                                </ul>
-                        
+                                    </div>      
                     </div>
                 ))}
                 </div>
