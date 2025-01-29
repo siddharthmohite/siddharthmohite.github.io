@@ -45,7 +45,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 9rem;
+    width: 12rem;
     background: rgba(164, 162, 162, 0.2);
     height:100%;
     border-top-left-radius: 12px;
@@ -109,16 +109,21 @@
         font-weight: 600;
     }
 
+    &__folder-container{
+        margin-bottom: 1rem;
+    }
+
     &__folder-item{
         display: flex;
         flex-direction: row;
         gap: 0.35rem;
-        margin: 0.4rem; /* Combine margins */
+        margin-left: 0.7rem;
+        margin-right: 0.7rem; /* Combine margins */
         align-items: center;
         min-width: 0;
         box-sizing: border-box;
         border: 2px solid transparent;
-        padding: 3.5px; /* Add consistent padding */
+        padding: 5.5px; /* Add consistent padding */
         border-radius: 5px; /* Add here to match selected state */
     }
 
@@ -146,7 +151,8 @@
         display: flex;
         flex-direction: row;
         gap: 0.35rem;
-        margin: 0.4rem; /* Combine margins */
+        margin-left: 0.9rem;
+        margin-right: 0.7rem; /* Combine margins */
         align-items: center;
         min-width: 0;
         box-sizing: border-box;
@@ -175,6 +181,10 @@
     background-color: #a5a0a0 !important;
 }
 .sidebar__folder-item.selected{
+    background: rgba(182, 182, 184,0.5);
+
+}
+.sidebar__tag-item.selected{
     background: rgba(182, 182, 184,0.5);
 
 }

@@ -1,11 +1,14 @@
 
 import FolderIcon from '../icons/FolderIcon'
-import { useState } from 'react';
+import ColoredCircle from '../components/ColoredCircle'
+import { useEffect, useState } from 'react';
 
 export default function Finder(){
 const [selectedFolderId, setSelectedFolderId] = useState(1);
 const [isExpanded, setIsExpanded] = useState(false);
 const [selectedTagId, setSelectedTagId] = useState(null);
+
+
 
 
 
@@ -19,13 +22,13 @@ const folders = [
 ]
 
 const tags = [
-    {"id": 1, "text":'Red'},
-    {"id": 2, "text":'Orange'},
-    {"id": 3, "text":'Yellow'},
-    {"id": 4, "text":'Green'},
-    {"id": 5, "text":'Blue'},
-    {"id": 6, "text":'Purple'},
-    {"id": 7, "text":'Gray'}
+    {"id": 1, "text":'Red' ,"color":'red'},
+    {"id": 2, "text":'Orange', "color":'orange'},
+    {"id": 3, "text":'Yellow', "color":'yellow'},
+    {"id": 4, "text":'Green', "color":'green'},
+    {"id": 5, "text":'Blue', "color":'blue'},
+    {"id": 6, "text":'Purple',"color":'purple'},
+    {"id": 7, "text":'Gray',"color":'gray'}
 ]
     return (
 
@@ -55,7 +58,7 @@ const tags = [
                     key={folder.id}
                     className="sidebar__folder-holder">
                                     <div 
-                                    onClick={() => setSelectedFolderId(folder.id)}
+                                    onClick={() => {setSelectedFolderId(folder.id); setSelectedTagId(null);}}
                                     className={`sidebar__folder-item ${selectedFolderId === folder.id ? 'selected' : ''}`}>
                                         <FolderIcon/>
                                         <span className="sidebar__folder-item-text">
@@ -75,9 +78,9 @@ const tags = [
                     key={tag.id}
                     className="sidebar__tag-holder">
                                     <div 
-                                    onClick={() => setSelectedTagId(tag.id)}
+                                    onClick={() => {setSelectedTagId(tag.id); setSelectedFolderId(null);}}
                                     className={`sidebar__tag-item ${selectedTagId === tag.id ? 'selected' : ''}`}>
-                                        <FolderIcon/>
+                                        <ColoredCircle color= {tag.color}/>
                                         <span className="sidebar__tag-item-text">
                                             {tag.text}
                                         </span>

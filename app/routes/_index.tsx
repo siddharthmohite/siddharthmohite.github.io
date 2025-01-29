@@ -74,7 +74,7 @@ export default function Index()
         if(password === "Hireme" && videoRef.current){
           const timestamp = videoRef.current.currentTime;
           navigate("/homepage", {
-            state: { timestamp }, // Pass timestamp as state
+            state: { timestamp } // Pass timestamp as state
           });
         }
         else{

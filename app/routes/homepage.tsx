@@ -7,6 +7,9 @@ import sdk from "@stackblitz/sdk"
 import { useLocation } from "@remix-run/react";
 import Folder from './components/Folder'
 import Finder from './components/Finder'
+import BatteryIcon from './icons/BatteryIcon'
+import SearchIcon from './icons/SearchIcon'
+import WifiIcon from './icons/WifiIcon'
 
 
 export default function homepage(){
@@ -20,6 +23,10 @@ export default function homepage(){
     const [offSetFolder, setOffSetFolder] = useState({x : 0, y : 0});
     const [offSetFrame, setOffSetFrame] = useState({ x: 0, y: 0 });
     const [isExpanded, setIsExpanded] = useState(false);
+    const [dayState, setDayState] = useState("");
+    const [monthState, setMonthState] = useState("");
+    const [dateState, setDateState] = useState(0);
+    const [currentTimeState, setCurrentTimeState] = useState("");
 
 
 
@@ -33,6 +40,20 @@ export default function homepage(){
         { id: 7, src: "/vscode.png"},
         { id: 8, src: "/trash.png"}
       ];
+    
+    const updateTime = () =>
+        {
+          const now = new Date();
+          const day = now.toLocaleString("en-US", { weekday: "long" }).slice(0,3);
+          const month = now.toLocaleString("en-US", { month: "long" }).slice(0,3);
+          const date = now.getDate();
+          const current_time = `${now.getHours() % 12 || 12}:${now.getMinutes().toString().padStart(2, "0")} ${now.getHours() >= 12 ? 'PM' : 'AM'}`;
+      
+          setDayState(day);
+          setMonthState(month);
+          setDateState(date);
+          setCurrentTimeState(current_time);
+        }  
 
     const handleImageClick = (id: number) => {
         setSelectedId(id); // Update the selected ID when an image is clicked
@@ -122,6 +143,17 @@ const handleMouseUpFolder = () => {
   setIsDraggingFolder(false);
   document.body.style.userSelect = ""; // Re-enable text selection
 };
+
+useEffect( () =>
+  {
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+
+    return () =>
+    {
+      clearInterval(interval)
+    };
+  },[]);
 
 useEffect(() => {
     if (isDraggingFrame) {
@@ -238,6 +270,26 @@ useEffect(() => {
         <div className="overlay-topbar">
             <div className="overlay-topbar__container">
                     <AppleLogoIcon/>
+            </div>
+            <div className="overlay-topbar__container-right">
+              <div className="overlay-topbar__battery">
+              <BatteryIcon />
+              </div>
+              <div className="overlay-topbar__wifi">
+              <WifiIcon />
+              </div>
+              <div className="overlay-topbar__search">
+              <SearchIcon />
+              </div>
+              <div className="overlay-topbar__siri">
+                <img className="overlay-topbar__siri-img" src="/Siri.png"/>
+              </div>
+              <span className="overlay-topbar__day-text">
+                {dayState}  {monthState} {dateState}
+              </span>
+              <span className="overlay-topbar__time-text">
+              {currentTimeState}
+              </span>
             </div>
         </div>
         <div className="overlay-downbar">

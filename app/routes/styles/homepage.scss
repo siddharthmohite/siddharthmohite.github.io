@@ -36,8 +36,10 @@
 //   border-radius: 5px; /* Optional: adds rounded corners to the box */
 // }
 .overlay-topbar{
-    display:inline-block;
+    display:flex;
+    justify-content: space-between;
     align-content: center;
+    align-items: center;
     position: absolute;
     max-width: none;
     width:100vw;
@@ -48,10 +50,59 @@
     background-color: rgba(233,231,236,0.7);
 
     &__container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 0.7rem;
+      display: flex;
+      align-items: center; // Vertically center the icon
+      padding-right: 0.7rem;
+      margin: 0.7rem;
+    }
+
+    &__container-right{
+      display: flex;
+      align-items: center; // Vertically center the icon
+      align-content: center;
+      justify-content: center;
+      padding-left: 0.7rem;
+      margin: 1rem;
+    }
+
+    &__battery{
+      margin-top: 0.216rem;
+    }
+    &__day-text{
+      font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+      font-size: 0.8rem;
+      font-weight: 330;
+      
+    }
+
+    &__time-text{
+      font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+      font-size: 0.80rem;
+      font-weight: 330;
+      margin-left: 0.6rem;
+    }
+
+    &__wifi{
+      margin-right: 0.5rem;
+      margin-bottom: 0.55rem;
+      margin-top: 0.5rem;
+    }
+
+    &__search{
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+    }
+    &__siri{
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      margin-top: 0.75rem;
+      margin-right: 0.5rem;
+    }
+    &siri-img{
+      width:100%;
+      height:100%;
+      display: block;
     }
 
     &__frame{
