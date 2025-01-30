@@ -1,15 +1,18 @@
-import "/app/routes/styles/homepage.scss"
-import "app/routes/styles/Folder.scss"
-import "app/routes/styles/Finder.scss"
-import AppleLogoIcon from './icons/AppleLogoIcon'
 import { useEffect, useRef, useState } from "react";
 import sdk from "@stackblitz/sdk"
 import { useLocation } from "@remix-run/react";
+import "/app/routes/styles/homepage.scss"
+import "app/routes/styles/Folder.scss"
+import "app/routes/styles/Finder.scss"
+import "app/routes/styles/AppleLogoMenu.scss"
 import Folder from './components/Folder'
 import Finder from './components/Finder'
+import AppleLogoIcon from './icons/AppleLogoIcon'
+import AppleLogoMenu from './components/AppleLogoMenu'
 import BatteryIcon from './icons/BatteryIcon'
 import SearchIcon from './icons/SearchIcon'
 import WifiIcon from './icons/WifiIcon'
+import ControlCenterIcon from  './icons/ControlCenterIcon'
 
 
 export default function homepage(){
@@ -27,6 +30,7 @@ export default function homepage(){
     const [monthState, setMonthState] = useState("");
     const [dateState, setDateState] = useState(0);
     const [currentTimeState, setCurrentTimeState] = useState("");
+    const [appleButtonClicked,setAppleButtonClicked] = useState(false);
 
 
 
@@ -53,7 +57,12 @@ export default function homepage(){
           setMonthState(month);
           setDateState(date);
           setCurrentTimeState(current_time);
-        }  
+        }
+    
+    const handleAppleButtonClick = () =>{
+
+      setAppleButtonClicked(!appleButtonClicked);
+    }    
 
     const handleImageClick = (id: number) => {
         setSelectedId(id); // Update the selected ID when an image is clicked
@@ -218,6 +227,11 @@ useEffect(() => {
             className="background-video"
             src="/22sec.mp4"
         />
+        {( appleButtonClicked &&
+          <div className="Menu-container">
+             <AppleLogoMenu />
+          </div>
+        )}
         {( selectedId == 1 &&
           <Finder/>
         )}
@@ -268,18 +282,23 @@ useEffect(() => {
             />
         </div>
         <div className="overlay-topbar">
-            <div className="overlay-topbar__container">
+            <div 
+            onClick={handleAppleButtonClick}
+            className={`overlay-topbar__container ${appleButtonClicked ? 'selected' : ''}`}>
                     <AppleLogoIcon/>
             </div>
             <div className="overlay-topbar__container-right">
               <div className="overlay-topbar__battery">
-              <BatteryIcon />
+                <BatteryIcon />
               </div>
               <div className="overlay-topbar__wifi">
-              <WifiIcon />
+                <WifiIcon />
               </div>
               <div className="overlay-topbar__search">
-              <SearchIcon />
+                <SearchIcon />
+              </div>
+              <div className="overlay-topbar__control-center">
+                <ControlCenterIcon/>
               </div>
               <div className="overlay-topbar__siri">
                 <img className="overlay-topbar__siri-img" src="/Siri.png"/>

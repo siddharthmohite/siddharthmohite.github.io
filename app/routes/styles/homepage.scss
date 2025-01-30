@@ -7,6 +7,22 @@
     position: relative;
 }
 
+.Menu-container{
+  display:flex;
+  flex-direction: row;
+  position: absolute;
+  height: 16rem;
+  width: 15rem;
+  z-index: 40;
+  top: 2.7rem;
+  left: 0.4rem;
+  background-color: rgba(245, 245, 247, 0.6);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  mix-blend-mode: screen;
+  border-radius: 0.75rem;
+  align-content: center;
+}
 .background-video{
     width: 100%;
     height: 100%;
@@ -51,11 +67,25 @@
 
     &__container{
       display: flex;
+      align-content: center;
+      justify-content: center;
+      position: relative;
       align-items: center; // Vertically center the icon
-      padding-right: 0.7rem;
-      margin: 0.7rem;
+      box-sizing: border-box;
+      padding-left: 10px;
+      padding-right: 7px;
+      margin-left: 15px;
+
+      
+      &.selected{
+        background-color: rgb(207, 206, 205) !important;
+        box-shadow: 0 0 0 8.6px rgb(207, 206, 205) !important;
+        border-top-left-radius: 7px !important;
+      }
+
     }
 
+  
     &__container-right{
       display: flex;
       align-items: center; // Vertically center the icon
@@ -65,20 +95,21 @@
       margin: 1rem;
     }
 
+    
     &__battery{
       margin-top: 0.216rem;
     }
     &__day-text{
       font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
-      font-size: 0.8rem;
-      font-weight: 330;
+      font-size: 0.82rem;
+      font-weight: 370;
       
     }
 
     &__time-text{
       font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
-      font-size: 0.80rem;
-      font-weight: 330;
+      font-size: 0.82rem;
+      font-weight: 370;
       margin-left: 0.6rem;
     }
 
@@ -91,7 +122,17 @@
     &__search{
       margin-right: 0.5rem;
       margin-left: 0.5rem;
+      margin-top: 0.1rem;
     }
+
+    &__control-center{
+      // -webkit-filter: invert(100%);
+      // filter: invert(100%);
+      transform: scale(0.5);
+      width: 30px;
+      height: 30px;
+    }
+
     &__siri{
       width: 30px;
       height: 30px;
