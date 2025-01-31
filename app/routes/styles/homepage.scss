@@ -12,16 +12,27 @@
   flex-direction: row;
   position: absolute;
   height: 16rem;
-  width: 15rem;
+  width: 14rem;
   z-index: 40;
   top: 2.7rem;
   left: 0.4rem;
-  background-color: rgba(245, 245, 247, 0.6);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  mix-blend-mode: screen;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border-radius: 0.75rem;
   align-content: center;
+}
+
+.Menu-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(198, 198, 199, 0.7);
+  mix-blend-mode: screen;
+  border-radius: 0.75rem;
+  z-index: -1; /* Send background to back */
 }
 .background-video{
     width: 100%;
