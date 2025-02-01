@@ -13,6 +13,7 @@ import BatteryIcon from './icons/BatteryIcon'
 import SearchIcon from './icons/SearchIcon'
 import WifiIcon from './icons/WifiIcon'
 import ControlCenterIcon from  './icons/ControlCenterIcon'
+import React from "react";
 
 
 export default function homepage(){
@@ -35,14 +36,14 @@ export default function homepage(){
 
 
     const images = [
-        { id: 1, src: "/finder.png" },
-        { id: 2, src: "/mail.png" },
-        { id: 3, src: "/news.png" },
-        { id: 4, src: "/terminal.png" },
-        { id: 5, src: "/chrome.png" },
-        { id: 6, src: "/calculator.png" },
-        { id: 7, src: "/vscode.png"},
-        { id: 8, src: "/trash.png"}
+        { id: 1, src: "/finder.png", name:"Finder" },
+        { id: 2, src: "/mail.png",name:"Contact Me" },
+        { id: 3, src: "/news.png" ,name:"Blog"},
+        { id: 4, src: "/terminal.png" ,name:"Terminal"},
+        { id: 5, src: "/chrome.png",name:"Google Chrome" },
+        { id: 6, src: "/calculator.png" ,name:"Calculator"},
+        { id: 7, src: "/vscode.png",name:"Visual Studio Code"},
+        { id: 8, src: "/trash.png",name:"Trash"}
       ];
     
     const updateTime = () =>
@@ -312,18 +313,28 @@ useEffect(() => {
             </div>
         </div>
         <div className="overlay-downbar">
-        {images.map((image) => (
+        {images.map((image, index) => (
+          <React.Fragment key={image.id}>
+            {index === images.length - 1 && (
+            <div className="overlay-downbar__divider"></div>
+        )}  
             <div 
             key= {image.id}
             data-id ={image.id}
             onClick={() => handleImageClick(image.id)}
             className="overlay-downbar__icons-container">
+              <div className="name">
+                    {image.name} 
+                </div> 
                 <div className="overlay-downbar__image-container">
                     <img 
                     src={image.src}
                     alt={`Image ${image.id}`} // Accessible alt text
                     data-id={image.id} //
                     className="overlay-downbar__image"></img>
+                     {/* <div className="name">
+                    {image.name} 
+                </div> */}
                     {selectedId == image.id &&(
                         <div className="overlay-downbar__image-notifier">
 
@@ -331,6 +342,7 @@ useEffect(() => {
                     )}
                 </div>
             </div>
+          </React.Fragment>
         ))}
         </div>
     </div>

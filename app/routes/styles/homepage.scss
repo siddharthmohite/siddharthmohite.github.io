@@ -11,7 +11,7 @@
   display:flex;
   flex-direction: row;
   position: absolute;
-  height: 16rem;
+  height: 17.6rem;
   width: 14rem;
   z-index: 40;
   top: 2.7rem;
@@ -259,8 +259,10 @@
         z-index:3;
         
     }
+    
 
     &__image-container{
+      position: relative;
         max-width:63px;
         max-height:63px;
         z-index:4.5;
@@ -280,7 +282,57 @@
         background-color: black;
         margin-left: 30px;
     }
+
+    &__divider{
+    margin: 0.3rem;
+    margin-top: 0.6rem;
+    width: 1.2px;
+    height: 74%;
+    background-color: black; /* Adjust color as needed */
+    }
+
+  
 }
+
+.name {
+  position: absolute;
+  top: -45px; /* Position above the image */
+  background: rgba(181, 180, 180, 0.8);
+  color: rgba(0, 0, 0, 1);
+  height: 10px;
+  padding: 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  visibility: hidden; /* Hidden by default */
+  opacity: 0; /* For smooth transition */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  white-space: nowrap;
+  mix-blend-mode: screen;
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+}
+
+.name::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 0;
+  height: 0;
+  max-width: 0;
+  backdrop-filter: blur(17px);
+  -webkit-backdrop-filter: blur(17px);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgba(181, 180, 180, 0.8);
+}
+
+.overlay-downbar__icons-container:hover .name {
+  visibility: visible; /* Show on hover */
+  opacity: 1; /* Fade in */
+}
+
 
 .animate {
     animation: bounceUp 1s ease; /* Smooth bounce animation */
