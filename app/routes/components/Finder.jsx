@@ -1,15 +1,24 @@
 
 import FolderIcon from '../icons/FolderIcon'
 import ColoredCircle from '../components/ColoredCircle'
+import AboutMe from '../components/AboutMe'
+import Experience from '../components/Experience'
+import Projects from '../components/Projects'
+import Certifications from '../components/Certifications'
+import Achievements from '../components/Achievements'
+
 import { useEffect, useState } from 'react';
 
-export default function Finder(){
+export default function Finder({onClose}){
 const [selectedFolderId, setSelectedFolderId] = useState(1);
 const [isExpanded, setIsExpanded] = useState(false);
 const [selectedTagId, setSelectedTagId] = useState(null);
 
 
-
+const handleButtonClose = () =>
+{
+    onClose();
+};
 
 
 const folders = [
@@ -30,12 +39,15 @@ const tags = [
     {"id": 6, "text":'Purple',"color":'purple'},
     {"id": 7, "text":'Gray',"color":'gray'}
 ]
+
     return (
 
         <div className={`container ${isExpanded ? 'expanded' : ''}`}>
             <div className="sidebar">
                 <div className="sidebar__buttons">
-                    <button className="sidebar__buttons-close">
+                    <button 
+                    onClick={handleButtonClose}
+                    className="sidebar__buttons-close">
 
                     </button>
                     <button className={`sidebar__buttons-min ${isExpanded ? 'active' : ''}`}>
@@ -90,6 +102,23 @@ const tags = [
                 </div>
             </div>
             </div>
+            <div className="main-container">
+            {(selectedFolderId == 1 &&
+                <AboutMe />
+            )} 
+             {(selectedFolderId == 2 &&
+                <Experience />
+            )}
+             {(selectedFolderId == 3 &&
+                <Projects />
+            )}
+             {(selectedFolderId == 4 &&
+                <Certifications />
+            )}   
+             {(selectedFolderId == 5 &&
+                <Achievements />
+            )} 
+            </div>    
         </div>
     )
 }
