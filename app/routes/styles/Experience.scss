@@ -11,3 +11,86 @@
     font-weight: 600;
     font-size: 1.1rem;
 }
+.info-bar{
+    display:flex;
+    flex-direction:row;
+    height: 2rem;
+
+    &__name{
+        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+        font-size: 0.7rem;
+        font-weight:200;
+        margin: 0.6rem;
+        margin-left: 2rem;
+        margin-right: 8rem;
+
+    }
+    
+    &__skills{
+        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+        font-size: 0.7rem;
+        font-weight:200;
+        margin: 0.6rem;
+        margin-left: 0.4rem;
+        margin-right: 10rem;
+    }
+    
+    &__date-started{
+        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+        font-size: 0.7rem;
+        font-weight:200;
+        margin: 0.6rem;
+        margin-left: 0.4rem;
+        margin-right: 5rem;
+        white-space: nowrap;
+    }
+
+    &__divider-vertical{
+        margin-top:0.3rem;
+        height: 70%;
+        width:0.3px;
+        background-color: rgb(151, 151, 151,0.7);
+    }
+
+}
+
+.exp-holder{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    width:97%;
+    height: 2.5rem;
+    background-color:rgb(151, 151, 151,0.7);
+    border-radius: 3px;
+    margin: 0.5rem;
+
+    &__text{
+        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+        font-size: 0.75rem;
+        color:black;
+        margin-left: 0.4rem;
+    }
+
+    &__img-container{
+        width:25px;
+        height: 25px;
+        border: 1.5px solid white;
+        outline: 1.5px solid #c5c4c4;
+        outline-offset: -4px;
+        margin-left: 0.8rem;
+    }
+
+    &__img{
+        width: 100%;
+        height: 100%;
+
+    }
+}
+
+.divider-horizontal{
+    width:100%;
+    height: 0.3px;
+    background-color: rgb(151, 151, 151,0.7);
+}
+

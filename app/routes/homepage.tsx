@@ -6,6 +6,10 @@ import "app/routes/styles/Folder.scss"
 import "app/routes/styles/Finder.scss"
 import "app/routes/styles/AppleLogoMenu.scss"
 import "app/routes/styles/AboutMe.scss"
+import "app/routes/styles/Experience.scss"
+import "app/routes/styles/Achievements.scss"
+import "app/routes/styles/Certification.scss"
+import "app/routes/styles/Projects.scss"
 import Folder from './components/Folder'
 import Finder from './components/Finder'
 import AppleLogoIcon from './icons/AppleLogoIcon'
