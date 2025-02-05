@@ -23,7 +23,7 @@
         font-weight:200;
         margin: 0.6rem;
         margin-left: 2rem;
-        margin-right: 12rem;
+        margin-right: 13rem;
 
     }
     
@@ -33,7 +33,7 @@
         font-weight:200;
         margin: 0.6rem;
         margin-left: 0.6rem;
-        margin-right: 15rem;
+        margin-right: 14.5rem;
     }
     
     &__date-started{
@@ -56,15 +56,28 @@
 }
 
 .exp-holder{
-    display:flex;
-    justify-content: flex-start;
+    display:grid;
+    grid-template-columns: 0fr 1.7fr 2.1fr 1.1fr 1fr; // Adjust column sizes as needed
+    gap: 0.6rem; // Adds spacing between columns
     align-items: center;
-    align-content: center;
     width:97%;
     height: 2.2rem;
-    background-color:rgb(244, 245, 245,1);
     border-radius: 8px;
     margin: 0.5rem;
+
+    &__white {
+        background-color: white;
+
+    }
+
+    &__black {
+        background-color: rgb(244, 245, 245,1);
+
+    }
+    &__onselected{
+        background-color: rgba(42,98,217);
+
+    }
 
     &__text{
         font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
@@ -74,10 +87,12 @@
     }
 
     &__img-container{
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
         width:25px;
         height: 25px;
-        border: 1.5px solid white;
-        outline: 1.5px solid #c5c4c4;
         outline-offset: -4px;
         margin-left: 0.8rem;
     }
@@ -88,34 +103,25 @@
 
     }
 
-    &__text-name{
-        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
-        font-size: 0.75rem;
-        color:black;
-        margin-left: 0.4rem;
-        margin-right: 2rem;
-    }
-
-    &__text-skills{
-        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
-        font-size: 0.75rem;
-        color:black;
-        margin-left: 0.4rem;
-        margin-right: 10rem;
-    }
-    &__text-dates{
-        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
-        font-size: 0.75rem;
-        color:black;
-        margin-left: 0.4rem;
-        margin-right: 3.8rem;
-    }
+    &__text-name,
+    &__text-skills,
+    &__text-dates,
     &__text-datee{
         font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
         font-size: 0.75rem;
         color:black;
-        margin-left: 0.4rem;
-        margin-right: 1rem;
+        white-space: nowrap;
+        cursor:pointer;   
+    }
+    &__text-name.onselected,
+    &__text-skills.onselected,
+    &__text-dates.onselected,
+    &__text-datee.onselected{
+        color:white;
+        white-space: nowrap;
+        cursor:pointer;  
+        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+        font-size: 0.75rem;
     }
 }
 
