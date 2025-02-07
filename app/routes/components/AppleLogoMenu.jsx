@@ -15,10 +15,11 @@ export default function AppleLogoMenu(){
                 View Work Experience
             </span>
             <span className="text">
-                Read Blogs Here
-            </span>
-            <span className="text">
                 Certificates
+            </span>
+            <div className="divider"></div>
+            <span className="text">
+                Read Blogs Here
             </span>
             <div className="divider"></div>
             <span className="text">

@@ -11,3 +11,61 @@
     font-weight: 600;
     font-size: 1.1rem;
 }
+.certification-container{
+    flex:1;
+    display: flex;
+    flex-direction:row;
+    width: 100%;
+    height: calc(100% - 4rem);
+}
+.right-sidebar{
+    width: 20rem;
+    background-color: red;
+}
+.certification-photo-container{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    width: 100%;
+    background-color: blue;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.slider-photo-frame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    background-color: black;
+    width: 100%;
+    height: 5rem;
+}
+
+.photo-container{
+    display: flex;
+    // height: 35rem;
+    // width: 35rem;
+    height: 100%;
+    width: 90%;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.photo-holders{
+    margin: 0.5rem;
+    width: 4rem;
+    height: 4rem;
+    background-color:white;
+}
+.photo-holders-img{
+    width: 100%;
+    height: 100%;
+}
+.image-certification{
+    width: 100%;
+    height:100%
+}

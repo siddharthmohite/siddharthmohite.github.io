@@ -10,6 +10,7 @@ export default function AboutMe(){
             <div className="img-container">
             <img className="me" src="/groot.gif" />
             </div>
+            <span className="name-big-letters">Siddharth Mohite</span>
             <span className="introduction">
            I'm Siddharth Mohite a detail-obsessed full-stack developer who loves making UI components not just work, but look amazing. 
            Currently, I'm diving into distributed systems and building tooling to boost developer productivity
