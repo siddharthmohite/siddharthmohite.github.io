@@ -17,17 +17,20 @@
     flex-direction:row;
     width: 100%;
     height: calc(100% - 4rem);
+    min-height: 380px;
 }
 .right-sidebar{
     width: 20rem;
-    background-color: red;
+    background-color: white;
+    border-color: rgb(185, 183, 183, 0.4);
+    border-left-width: 1px;
 }
 .certification-photo-container{
     display: flex;
     flex-direction: column;
-    gap:2rem;
+    gap:1rem;
     width: 100%;
-    background-color: blue;
+    background-color: white;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -39,20 +42,21 @@
     align-items: center;
     align-content: center;
     flex-direction: row;
-    background-color: black;
-    width: 100%;
+    background-color: white;
     height: 5rem;
+    overflow-x: auto;
 }
 
 .photo-container{
     display: flex;
     // height: 35rem;
     // width: 35rem;
-    height: 100%;
+    height: 90%;
     width: 90%;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-right: 1rem;
     margin-left: 1rem;
+    max-height: 637px;
 }
 
 .photo-holders{
@@ -60,12 +64,127 @@
     width: 4rem;
     height: 4rem;
     background-color:white;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+    flex-shrink: 0;
 }
 .photo-holders-img{
     width: 100%;
     height: 100%;
 }
-.image-certification{
-    width: 100%;
-    height:100%
+
+.photo-holders.active {
+    border-color: rgba(189,189,189);
+    border-width: 7px;
+    border-radius: 3px;
 }
+.image-certification{
+    max-width: 100%;
+    max-height:100%;
+    width:auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.slider-photo-frame::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-photo-frame {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+.info-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    margin: 1rem;
+}
+.info-container-right{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-left: 0.3rem;
+}
+  .info-container-img-container{
+    margin: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    background-color:white;
+    cursor: pointer;
+    border: 2px solid ;
+    transition: border-color 0.2s;
+    flex-shrink: 0;
+    border-color: white;
+    border-width: 3px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
+  }
+
+  .info-container-name-text{
+    color:black;
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.9rem;
+  }
+
+  .info-container-img-type-text{
+    color: gray;
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.7rem;
+  }
+
+  .certification-info-container{
+    display: flex;
+    flex-direction:column;
+    margin: 0.4rem;
+    gap: 0.3rem;
+  }
+  .certifications-info-text{
+    color:black;
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .certification-name,
+  .certification-number,
+  .certification-date-issued,
+  .certification-expiry-date,
+  .certification-issued-by{
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    color:rgb(131, 131, 131,0.7);
+    justify-content: space-evenly;
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+
+  .certification-divider{
+    margin-right:0.2rem;
+    width: 14rem;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .certification-name-holder,
+  .certification-issued-by-holder,
+  .certification-expiry-date-holder,
+  .certification-date-issued-holder,
+  .certification-number-holder,
+  .certification-name-holder{
+    display:flex;
+    justify-content: space-between;
+    margin-right: 0.2rem;
+  }
+  .certification-name-answers,
+  .certification-number-answers,
+  .certification-date-issued-answers,
+  .certification-expiry-date-answers,
+  .certification-issued-by-answers{
+    color:black;
+    font-size: 0.7rem;
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    white-space: nowrap;
+  }
