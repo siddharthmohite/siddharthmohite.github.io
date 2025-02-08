@@ -10,10 +10,12 @@ import "app/routes/styles/Experience.scss"
 import "app/routes/styles/Achievements.scss"
 import "app/routes/styles/Certification.scss"
 import "app/routes/styles/Projects.scss"
+import "app/routes/styles/BatteryMenu.scss"
 import Folder from './components/Folder'
 import Finder from './components/Finder'
 import AppleLogoIcon from './icons/AppleLogoIcon'
 import AppleLogoMenu from './components/AppleLogoMenu'
+import BatteryMenu from './components/BatteryMenu'
 import BatteryIcon from './icons/BatteryIcon'
 import SearchIcon from './icons/SearchIcon'
 import WifiIcon from './icons/WifiIcon'
@@ -37,6 +39,7 @@ export default function homepage(){
     const [dateState, setDateState] = useState(0);
     const [currentTimeState, setCurrentTimeState] = useState("");
     const [appleButtonClicked,setAppleButtonClicked] = useState(false);
+    const [batteryButtonClicked, setBatteryButtonClicked] = useState(false);
 
 
 
@@ -68,7 +71,12 @@ export default function homepage(){
     const handleAppleButtonClick = () =>{
 
       setAppleButtonClicked(!appleButtonClicked);
-    }    
+    };
+    
+    const handleBatteryButtonClick = () =>{
+
+      setBatteryButtonClicked(!batteryButtonClicked);
+    } 
 
     const handleImageClick = (id: number) => {
         setSelectedId(id); // Update the selected ID when an image is clicked
@@ -238,6 +246,12 @@ useEffect(() => {
              <AppleLogoMenu />
           </div>
         )}
+        ({ batteryButtonClicked &&
+
+          <div className="battery-container-1">
+            <BatteryMenu />
+          </div>
+        })
         {( selectedId == 1 &&
           <Finder onClose={handleClose}/>
         )}
@@ -294,7 +308,9 @@ useEffect(() => {
                     <AppleLogoIcon/>
             </div>
             <div className="overlay-topbar__container-right">
-              <div className="overlay-topbar__battery">
+              <div 
+              onClick={handleBatteryButtonClick}
+              className="overlay-topbar__battery">
                 <BatteryIcon />
               </div>
               <div className="overlay-topbar__wifi">

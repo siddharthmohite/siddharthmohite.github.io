@@ -1,0 +1,46 @@
+.battery-menu-container{
+    display: flex;
+    flex-direction:column;
+    margin:0.7rem;
+    gap: 0.5rem;
+}
+.battery-menu-1{
+    display: flex;
+    width: 100%;
+    gap: 11.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.battery-percentage{
+    color:gray;
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.8rem;
+}
+
+.battery-menu-text{
+    color: rgb(40, 39, 39);
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.8rem;
+    font-weight: 650;
+}
+.battery-menu-gray-text{
+    color: gray;
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.8rem;
+    
+}
+.battery-menu-divider{
+    margin-right:0.2rem;
+    width: 14rem;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.battery-menu-settings-text{
+    color: rgb(40, 39, 39);
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.8rem;
+    
+}
