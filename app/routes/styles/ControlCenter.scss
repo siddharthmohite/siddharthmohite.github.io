@@ -1,0 +1,22 @@
+.control-menu-container{
+    display: flex;
+    flex-direction:column;
+    margin:0.7rem;
+    gap: 0.5rem;
+    height: fit-content;
+    width: fit-content;
+    mix-blend-mode: screen;
+}
+.upper-controls{
+    display:flex;
+    flex-direction: row;
+    gap: 0.7rem;
+}
+.left-controls,
+.right-controls{
+    width: 8.5rem;
+    height: 6rem;
+    background-color: rgba(203, 204, 203);
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds shadow for elevation */
+}

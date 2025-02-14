@@ -11,11 +11,13 @@ import "app/routes/styles/Achievements.scss"
 import "app/routes/styles/Certification.scss"
 import "app/routes/styles/Projects.scss"
 import "app/routes/styles/BatteryMenu.scss"
+import "app/routes/styles/ControlCenter.scss"
 import Folder from './components/Folder'
 import Finder from './components/Finder'
-import AppleLogoIcon from './icons/AppleLogoIcon'
 import AppleLogoMenu from './components/AppleLogoMenu'
 import BatteryMenu from './components/BatteryMenu'
+import ControlCenter from './components/ControlCenter'
+import AppleLogoIcon from './icons/AppleLogoIcon'
 import BatteryIcon from './icons/BatteryIcon'
 import SearchIcon from './icons/SearchIcon'
 import WifiIcon from './icons/WifiIcon'
@@ -40,6 +42,7 @@ export default function homepage(){
     const [currentTimeState, setCurrentTimeState] = useState("");
     const [appleButtonClicked,setAppleButtonClicked] = useState(false);
     const [batteryButtonClicked, setBatteryButtonClicked] = useState(false);
+    const [controlCenterButtonClicked, setControlCenterButtonClicked] = useState(false);
 
 
 
@@ -76,6 +79,12 @@ export default function homepage(){
     const handleBatteryButtonClick = () =>{
 
       setBatteryButtonClicked(!batteryButtonClicked);
+    } 
+
+    const handleControlButtonClick = () =>{
+
+      setControlCenterButtonClicked(!controlCenterButtonClicked);
+      console.log("control button clicked", controlCenterButtonClicked)
     } 
 
     const handleImageClick = (id: number) => {
@@ -252,6 +261,11 @@ useEffect(() => {
             <BatteryMenu />
           </div>
         })
+        {( controlCenterButtonClicked &&
+           <div className="controlcenter-container">
+              <ControlCenter />
+          </div>
+        )}
         {( selectedId == 1 &&
           <Finder onClose={handleClose}/>
         )}
@@ -316,10 +330,13 @@ useEffect(() => {
               <div className="overlay-topbar__wifi">
                 <WifiIcon />
               </div>
-              <div className="overlay-topbar__search">
+              <div 
+              className="overlay-topbar__search">
                 <SearchIcon />
               </div>
-              <div className="overlay-topbar__control-center">
+              <div 
+              onClick={handleControlButtonClick}
+              className="overlay-topbar__control-center">
                 <ControlCenterIcon/>
               </div>
               <div className="overlay-topbar__siri">
