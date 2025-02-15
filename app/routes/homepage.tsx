@@ -328,7 +328,7 @@ useEffect(() => {
                 <BatteryIcon />
               </div>
               <div className="overlay-topbar__wifi">
-                <WifiIcon />
+                <WifiIcon  fill="rgba(0,0,0,1)" height="20px" width="20px"/>
               </div>
               <div 
               className="overlay-topbar__search">

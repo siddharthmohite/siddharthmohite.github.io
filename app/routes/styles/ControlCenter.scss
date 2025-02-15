@@ -1,22 +1,85 @@
 .control-menu-container{
     display: flex;
     flex-direction:column;
-    margin:0.7rem;
+    // margin:0.7rem;
     gap: 0.5rem;
     height: fit-content;
     width: fit-content;
-    mix-blend-mode: screen;
+    // mix-blend-mode: screen;
+    
 }
 .upper-controls{
     display:flex;
     flex-direction: row;
     gap: 0.7rem;
+    margin: 0.6rem;
 }
 .left-controls,
 .right-controls{
-    width: 8.5rem;
-    height: 6rem;
-    background-color: rgba(203, 204, 203);
+    display: flex;
+    height: fit-content;
+    background-color: rgba(203, 204, 203,0.7);
     border-radius: 0.5rem;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds shadow for elevation */
+}
+
+.connectivity-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0.2rem;
+    width: fit-content;
+}
+
+.connectivity-holder{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap:0.5rem;
+    padding: 0.3rem;
+    width: 100%;
+}
+.connectivity-text-big{
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.75rem;
+    cursor: pointer;
+    color: rgba(0, 0, 0,1);
+    font-weight: 500;
+}
+.connectivity-text-small{
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.68rem;
+    flex-direction: column;
+    margin-left: 0.1rem;
+    cursor: pointer;
+    
+}
+.connectivity-text-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.1rem;
+    white-space: nowrap;
+}
+.chevron-right{
+    margin-left: auto;
+    opacity: 0;
+    visibility: hidden;
+}
+.circle-wrapper{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgba(52,120,246);
+}
+.circle-wrapper.selected{
+    background-color:rgb(189, 185, 185) ;
+}
+.connectivity-holder:hover .chevron-right {
+    opacity: 1;
+    visibility: visible;
 }
