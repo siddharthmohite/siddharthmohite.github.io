@@ -2,6 +2,9 @@ import WifiIcon from "../icons/WifiIcon"
 import ChevronRight from "../icons/ChevronRight"
 import BluetoothIcon from "../icons/BluetoothIcon"
 import AirDropIcon from "../icons/AirDropIcon"
+import FocusIcon from "../icons/FocusIcon"
+import StageManagerIcon from "../icons/StageManagerIcon"
+import FullScreenIcon from "../icons/FullScreenIcon"
 import { useState } from "react"
 export default function ControlCenter(){
 
@@ -51,7 +54,24 @@ const handleSelected = (id) =>{
                     </div>
                 </div>
                 <div className="right-controls">
-
+                        <div className="focus">
+                            <div className="circle-wrapper-right">
+                                <FocusIcon />
+                            </div>
+                            <span className="focus-text">Focus</span>
+                        </div>
+                        <div className="manager-container">
+                            <div className="stage-manager">
+                                <StageManagerIcon />
+                                <span className="manager-text">Stage</span>
+                                <span className="manager-text">Manager</span>
+                            </div>
+                            <div className="full-screen-mode">
+                                <FullScreenIcon />
+                                <span className="manager-text">FullScreen</span>
+                                <span className="manager-text">Mode</span>
+                            </div>
+                        </div>
                 </div>
             </div>
 
