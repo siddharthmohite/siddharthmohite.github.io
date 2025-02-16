@@ -1,8 +1,6 @@
 .control-menu-container{
     display: flex;
     flex-direction:column;
-    // margin:0.7rem;
-    gap: 0.5rem;
     height: fit-content;
     width: fit-content;
     // mix-blend-mode: screen;
@@ -25,7 +23,7 @@
 .right-controls{
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.7rem;
 }
 .focus{
     display: flex;
@@ -161,3 +159,145 @@
     opacity: 1;
     visibility: visible;
 }
+
+.lower-controls{
+    display: flex;
+    flex-direction:column;
+    margin:0.7rem;
+    gap: 0.7rem;
+}
+
+.brightness-container,
+.volume-container{
+    display: flex;
+    flex-direction:column;
+    height: fit-content;
+    background-color: rgba(203, 204, 203,0.7);
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+.player-container{
+    display: flex;
+    height: fit-content;
+    align-content: center;
+    background-color: rgba(203, 204, 203,0.7);
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding-top: 5px;
+    padding-bottom:5px;
+}
+.slider-container {
+    display: flex;
+    align-items: center;
+    background: none;
+    padding: 5px;
+    border-radius: 12px;
+    width: 300px;
+    position: relative;
+  }
+  .slider-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  .slider-icon {
+    position: absolute;
+    margin-top: 4.5px;
+    margin-left: 4.5px;
+  }
+  .icon {
+    margin-left: 30px;
+    font-size: 18px;
+    color: gray;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 22px; // Increased height to make the track thicker
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    background: linear-gradient(to right, white 50%, #d1d1d1 50%);
+    transition: background 0.3s;
+  
+    &::-webkit-slider-runnable-track {
+      height: 22px; 
+      border-radius: 10px;
+      background: transparent;
+    }
+  
+ 
+    &::-moz-range-track {
+      height: 22px; 
+      border-radius: 10px;
+      background: transparent;
+    }
+  
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+  
+    &::-moz-range-thumb {
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+  }
+
+  .display-text,
+  .sound-text{
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.85rem;
+    font-weight: 450;
+    color:rgba(0, 0, 0, 1);
+    margin:0.5rem;
+    margin-bottom: 0rem;
+  }
+
+  .audio-image-container{
+    height: 40px;
+    width: 45px;
+    margin:0.5rem;
+    padding-top:8px;
+    padding-bottom: 8px;
+    background-color: gray;
+  }
+  .audio-image{
+    width:100%;
+    height:100%;
+  }
+  .audio-text-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .audio-desc-text{
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.85rem;
+    color:rgb(27, 27, 27);
+    margin-top:0.1rem;
+    margin-bottom:0.1rem;
+  }
+
+  .audio-controls{
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+    margin-left: auto;
+    margin-right: 15px;
+  }
