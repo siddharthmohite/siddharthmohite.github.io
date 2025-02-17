@@ -155,12 +155,12 @@ useEffect(() => {
                                 onChange={handleChange}
                                 className="slider"
                                 style={{
-                                    background: `linear-gradient(to right, white ${(brightness - 70) / 30 * 100}%,rgba(141, 140, 140,0.7) ${(brightness - 70) / 30 * 100}%`,
+                                    background: `linear-gradient(to right, white ${(brightness - 70.55) / 30 * 100}%,rgba(141, 140, 140,0.7) ${(brightness - 70.55) / 30 * 100}%`,
                                 }}
                             />
                             <div
                                 className="slider-thumb"
-                                style={{ transform: `translateX(${(brightness-70) * 2.3}px)` }}
+                                style={{ transform: `translateX(${(brightness-70.55) * 2.8}px)` }}
                             ></div>
                         </div>
                 </div>    
@@ -182,12 +182,13 @@ useEffect(() => {
                                 onChange={handleVolumeChange}
                                 className="slider-volume"
                                 style={{
-                                    background: `linear-gradient(to right, white ${volume}%,rgba(141, 140, 140,0.7) ${volume}%)`,
+                                    background: `linear-gradient(to right, white ${(volume)*2.83}px,rgba(141, 140, 140,0.7) ${(volume) *2.83}px)`,
+                                    borderRadius: "10.85px",
                                 }}
                             />
                             <div
                                 className="slider-thumb"
-                                style={{ transform: `translateX(${volume * 2.3}px)` }}
+                                style={{ transform: `translateX(${(volume) * 2.83}px)` }}
                             ></div>
                         </div>
                 </div>

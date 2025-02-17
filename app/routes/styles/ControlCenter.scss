@@ -242,23 +242,23 @@
     -moz-appearance: none;
     appearance: none;
     width: 100%;
-    height: 22px; // Increased height to make the track thicker
-    border-radius: 10px;
+    height: 21.7px; // Increased height to make the track thicker
+    border-radius: 10.85px;
     outline: none;
     cursor: pointer;
     background: linear-gradient(to right, white 50%, rgba(48, 48, 48, 0.7)50%);
     transition: background 0.3s;
 
     &::-webkit-slider-runnable-track {
-      height: 22px; 
-      border-radius: 10px;
+      height: 21.7px; 
+      border-radius: 10.85px;
       background: transparent;
     }
   
  
     &::-moz-range-track {
-      height: 22px; 
-      border-radius: 10px;
+      height: 21.7px; 
+      border-radius: 10.85px;
       background: transparent;
     }
   
