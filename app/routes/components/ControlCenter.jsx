@@ -38,7 +38,6 @@ const [isPlaying, setIsPlaying] = useState(false);
 const audioRef = useRef(null);
 const [selectedItems, setSelectedItems] = useState({});
 const [brightness, setBrightness] = useState(50);
-// const [fullScreenSelected, setFullScreenSelected] = useState(false);
 const {fullScreenSelected, toggleFullScreen } = useContext(FullScreenContext);
 
 
@@ -47,7 +46,7 @@ const handlePlayPause = () => {
         if (isPlaying) {
             audioRef.current.pause();
         } else {
-            audioRef.current.currentTime = 0; // Start from the beginning if needed
+            audioRef.current.currentTime = 0; 
             audioRef.current.play();
         }
         setIsPlaying(!isPlaying);
@@ -56,7 +55,7 @@ const handlePlayPause = () => {
 
 const handleNext = () => {
     setCurrentTrackIndex((prevIndex) => (prevIndex + 1) % audioList.length);
-    setIsPlaying(false); // Reset play state when switching tracks
+    setIsPlaying(false); 
 };
 
 const handleLofiWebsite = () =>{
@@ -73,35 +72,7 @@ const handleChange = (event) => {
       const value = Number(event.target.value);
       setBrightness(value);
     };
-
-// const handleFullScreenClick = () =>{
-//     if (!fullScreenSelected) {
-//         // Enter Full-Screen Mode
-//         if (document.documentElement.requestFullscreen) {
-//             document.documentElement.requestFullscreen();
-//         } else if (document.documentElement.mozRequestFullScreen) { // Firefox
-//             document.documentElement.mozRequestFullScreen();
-//         } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
-//             document.documentElement.webkitRequestFullscreen();
-//         } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
-//             document.documentElement.msRequestFullscreen();
-//         }
-//     } else {
-//         // Exit Full-Screen Mode
-//         if (document.exitFullscreen) {
-//             document.exitFullscreen();
-//         } else if (document.mozCancelFullScreen) { // Firefox
-//             document.mozCancelFullScreen();
-//         } else if (document.webkitExitFullscreen) { // Chrome, Safari, Opera
-//             document.webkitExitFullscreen();
-//         } else if (document.msExitFullscreen) { // IE/Edge
-//             document.msExitFullscreen();
-//         }
-//     }
-//     setFullScreenSelected(!fullScreenSelected);
-// }    
-
-
+ 
     return(
         <div className="control-menu-container">
             <div className="upper-controls">
