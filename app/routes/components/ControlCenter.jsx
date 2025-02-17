@@ -9,7 +9,9 @@ import BrightnessIcon from "../icons/BrightnessIcon"
 import VolumeIcon from "../icons/VolumeIcon"
 import AudioPlayIcon from "../icons/AudioPlayIcon"
 import AudioNextIcon from "../icons/AudioNextIcon"
-import { useState } from "react"
+import AudioPauseIcon from "../icons/AudioPauseIcon"
+import { FullScreenContext } from "./FullScreenContext";
+import { useState, useRef, useContext} from "react"
 import React from "react"
 export default function ControlCenter(){
 
@@ -18,10 +20,48 @@ const connectivity =[
     {id:2 ,Icon1: <BluetoothIcon />, textbig: "Bluetooth",textsmall: "On" },
     {id:3, Icon1: <AirDropIcon />, textbig: "Airdrop",textsmall: "Contacts Only" },
 ]
+
+const audioList = [
+    {
+        src: "audio1.mp3",
+        title: "This is helpful while coding pt.1",
+        description: "Lo-Fi लो-फाई (siddharth's playlist)"
+    },
+    {
+        src: "audio2.mp3",
+        title: "This is helpful while coding pt.2",
+        description: "Lo-Fi लो-फाई (siddharth's playlist)"
+    }
+];
+const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+const [isPlaying, setIsPlaying] = useState(false);
+const audioRef = useRef(null);
 const [selectedItems, setSelectedItems] = useState({});
 const [brightness, setBrightness] = useState(50);
+// const [fullScreenSelected, setFullScreenSelected] = useState(false);
+const {fullScreenSelected, toggleFullScreen } = useContext(FullScreenContext);
 
 
+const handlePlayPause = () => {
+    if (audioRef.current) {
+        if (isPlaying) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.currentTime = 0; // Start from the beginning if needed
+            audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    }
+};
+
+const handleNext = () => {
+    setCurrentTrackIndex((prevIndex) => (prevIndex + 1) % audioList.length);
+    setIsPlaying(false); // Reset play state when switching tracks
+};
+
+const handleLofiWebsite = () =>{
+    window.open("https://lofigirl.com/releases/sleeping-soul/", "");
+}
 const handleSelected = (id) =>{
     setSelectedItems((prevState) => ({
         ...prevState,
@@ -29,11 +69,37 @@ const handleSelected = (id) =>{
     }));
 }
 
-  
-    const handleChange = (event) => {
+const handleChange = (event) => {
       const value = Number(event.target.value);
       setBrightness(value);
     };
+
+// const handleFullScreenClick = () =>{
+//     if (!fullScreenSelected) {
+//         // Enter Full-Screen Mode
+//         if (document.documentElement.requestFullscreen) {
+//             document.documentElement.requestFullscreen();
+//         } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+//             document.documentElement.mozRequestFullScreen();
+//         } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
+//             document.documentElement.webkitRequestFullscreen();
+//         } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+//             document.documentElement.msRequestFullscreen();
+//         }
+//     } else {
+//         // Exit Full-Screen Mode
+//         if (document.exitFullscreen) {
+//             document.exitFullscreen();
+//         } else if (document.mozCancelFullScreen) { // Firefox
+//             document.mozCancelFullScreen();
+//         } else if (document.webkitExitFullscreen) { // Chrome, Safari, Opera
+//             document.webkitExitFullscreen();
+//         } else if (document.msExitFullscreen) { // IE/Edge
+//             document.msExitFullscreen();
+//         }
+//     }
+//     setFullScreenSelected(!fullScreenSelected);
+// }    
 
 
     return(
@@ -78,10 +144,12 @@ const handleSelected = (id) =>{
                                 <span className="manager-text">Stage</span>
                                 <span className="manager-text">Manager</span>
                             </div>
-                            <div className="full-screen-mode">
-                                <FullScreenIcon />
-                                <span className="manager-text">FullScreen</span>
-                                <span className="manager-text">Mode</span>
+                            <div 
+                            onClick={toggleFullScreen}
+                            className={`full-screen-mode ${fullScreenSelected ? "selected" : ""}`}>
+                                <FullScreenIcon fill={fullScreenSelected ? "rgba(54,121,247,1)" : "rgba(0,0,0,1)"} />
+                                <span className={`manager-text ${fullScreenSelected ? "selected" : ""}`}>FullScreen</span>
+                                <span className={`manager-text ${fullScreenSelected ? "selected" : ""}`}>Mode</span>
                             </div>
                         </div>
                 </div>
@@ -143,22 +211,31 @@ const handleSelected = (id) =>{
                 </div>
                 <div className="audio-player">
                     <div className="player-container">
-                        <div className="audio-image-container">
+                        <div 
+                        onClick={handleLofiWebsite}
+                        className="audio-image-container">
                             <img className="audio-image" src="/audio.jpg" ></img>
                         </div>
-                        <div className="audio-text-container">
-                            <span className="audio-desc-text">
-                            This helps while coding
+                        <audio  
+                        ref={audioRef} 
+                        src={audioList[currentTrackIndex].src} 
+                        onEnded={() => setIsPlaying(false)}
+                        />
+                        <div 
+                        onClick={handleLofiWebsite}
+                        className="audio-text-container">
+                            <span className="audio-desc-text-big">
+                            {audioList[currentTrackIndex].title}
                             </span>
-                            <span className="audio-desc-text">
-                                Lo-FI 
+                            <span className="audio-desc-text-small">
+                            {audioList[currentTrackIndex].description}
                             </span>
                         </div>
                         <div className="audio-controls">
-                            <button className="audio-play">
-                                <AudioPlayIcon />
+                            <button onClick={handlePlayPause} className="audio-play">
+                            {isPlaying ? <AudioPauseIcon /> : <AudioPlayIcon />}
                             </button>
-                            <button className="audio-next">
+                            <button onClick={handleNext} className="audio-next">
                                 <AudioNextIcon />
                             </button>
                         </div>

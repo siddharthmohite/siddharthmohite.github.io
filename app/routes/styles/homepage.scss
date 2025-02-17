@@ -87,6 +87,7 @@
   border-radius: 0.75rem;
   z-index: -1; /* Send background to back */
 }
+
 .background-video{
     width: 100%;
     height: 100%;
@@ -100,7 +101,7 @@
 .folder-wrapper{
   position:absolute;
   top: 100px;
-  right: 10px;
+  right: 1.8rem;
   max-width:150px;
   max-height: 150px;
   z-index:6;

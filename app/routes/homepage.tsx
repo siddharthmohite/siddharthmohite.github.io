@@ -23,6 +23,8 @@ import SearchIcon from './icons/SearchIcon'
 import WifiIcon from './icons/WifiIcon'
 import ControlCenterIcon from  './icons/ControlCenterIcon'
 import React from "react";
+import { FullScreenProvider } from "./components/FullScreenContext";
+
 
 
 export default function homepage(){
@@ -43,7 +45,7 @@ export default function homepage(){
     const [appleButtonClicked,setAppleButtonClicked] = useState(false);
     const [batteryButtonClicked, setBatteryButtonClicked] = useState(false);
     const [controlCenterButtonClicked, setControlCenterButtonClicked] = useState(false);
-
+    const [siriButtonClicked, setSiriButtonClicked] = useState(false);
 
 
     const images = [
@@ -244,6 +246,7 @@ useEffect(() => {
     
 
     return(
+      <FullScreenProvider>  
     <div className="homepage-container">
         <video
             ref={videoRef}
@@ -263,7 +266,9 @@ useEffect(() => {
         })
         {( controlCenterButtonClicked &&
            <div className="controlcenter-container">
+            {/* <FullScreenProvider> */}
               <ControlCenter />
+            {/* </FullScreenProvider>   */}
           </div>
         )}
         {( selectedId == 1 &&
@@ -339,7 +344,8 @@ useEffect(() => {
               className="overlay-topbar__control-center">
                 <ControlCenterIcon/>
               </div>
-              <div className="overlay-topbar__siri">
+              <div 
+              className="overlay-topbar__siri">
                 <img className="overlay-topbar__siri-img" src="/Siri.png"/>
               </div>
               <span className="overlay-topbar__day-text">
@@ -367,16 +373,11 @@ useEffect(() => {
                 <div className="overlay-downbar__image-container">
                     <img 
                     src={image.src}
-                    alt={`Image ${image.id}`} // Accessible alt text
+                    alt={`Image ${image.id}`}
                     data-id={image.id} //
                     className="overlay-downbar__image"></img>
-                     {/* <div className="name">
-                    {image.name} 
-                </div> */}
                     {selectedId == image.id &&(
-                        <div className="overlay-downbar__image-notifier">
-
-                        </div>
+                        <div className="overlay-downbar__image-notifier"/>
                     )}
                 </div>
             </div>
@@ -384,5 +385,6 @@ useEffect(() => {
         ))}
         </div>
     </div>
+    </FullScreenProvider>  
     );
 }
