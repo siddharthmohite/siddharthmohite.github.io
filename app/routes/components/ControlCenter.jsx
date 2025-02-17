@@ -35,11 +35,19 @@ const audioList = [
 ];
 const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 const [isPlaying, setIsPlaying] = useState(false);
+const [volume, setVolume] = useState(70); 
 const audioRef = useRef(null);
 const [selectedItems, setSelectedItems] = useState({});
 const [brightness, setBrightness] = useState(50);
 const {fullScreenSelected, toggleFullScreen } = useContext(FullScreenContext);
 
+const handleVolumeChange = (e) => {
+    const newVolume = e.target.value;
+    setVolume(newVolume);
+    if (audioRef.current) {
+        audioRef.current.volume = newVolume / 100; // Convert to range 0-1
+    }
+};
 
 const handlePlayPause = () => {
     if (audioRef.current) {
@@ -166,16 +174,16 @@ const handleChange = (event) => {
                                 type="range"
                                 min="0"
                                 max="100"
-                                value={brightness}
-                                onChange={handleChange}
-                                className="slider"
+                                value={volume}
+                                onChange={handleVolumeChange}
+                                className="slider-volume"
                                 style={{
-                                    background: `linear-gradient(to right, white ${brightness}%, #d1d1d1 ${brightness}%)`,
+                                    background: `linear-gradient(to right, white ${volume}%, #d1d1d1 ${brightness}%)`,
                                 }}
                             />
                             <div
                                 className="slider-thumb"
-                                style={{ transform: `translateX(${brightness * 2.3}px)` }}
+                                style={{ transform: `translateX(${volume * 2.3}px)` }}
                             ></div>
                         </div>
                 </div>
