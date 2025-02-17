@@ -246,9 +246,9 @@
     border-radius: 10px;
     outline: none;
     cursor: pointer;
-    background: linear-gradient(to right, white 50%, #d1d1d1 50%);
+    background: linear-gradient(to right, white 50%, rgba(48, 48, 48, 0.7)50%);
     transition: background 0.3s;
-  
+
     &::-webkit-slider-runnable-track {
       height: 22px; 
       border-radius: 10px;

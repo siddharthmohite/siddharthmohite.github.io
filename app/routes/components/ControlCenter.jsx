@@ -11,7 +11,7 @@ import AudioPlayIcon from "../icons/AudioPlayIcon"
 import AudioNextIcon from "../icons/AudioNextIcon"
 import AudioPauseIcon from "../icons/AudioPauseIcon"
 import { FullScreenContext } from "./FullScreenContext";
-import { useState, useRef, useContext} from "react"
+import { useState, useRef, useContext, useEffect} from "react"
 import React from "react"
 export default function ControlCenter(){
 
@@ -38,7 +38,7 @@ const [isPlaying, setIsPlaying] = useState(false);
 const [volume, setVolume] = useState(70); 
 const audioRef = useRef(null);
 const [selectedItems, setSelectedItems] = useState({});
-const [brightness, setBrightness] = useState(50);
+const [brightness, setBrightness] = useState(100);
 const {fullScreenSelected, toggleFullScreen } = useContext(FullScreenContext);
 
 const handleVolumeChange = (e) => {
@@ -80,6 +80,10 @@ const handleChange = (event) => {
       const value = Number(event.target.value);
       setBrightness(value);
     };
+
+useEffect(() => {
+    document.body.style.filter = `brightness(${brightness}%)`;
+}, [brightness]);    
  
     return(
         <div className="control-menu-container">
@@ -111,16 +115,16 @@ const handleChange = (event) => {
                     </div>
                 </div>
                 <div className="right-controls">
-                        <div className="focus">
+                        <div title="Feature not available yet" className="focus">
                             <div className="circle-wrapper-right">
                                 <FocusIcon />
                             </div>
                             <span className="focus-text">Focus</span>
                         </div>
-                        <div className="manager-container">
+                        <div className="manager-container" title="feature not available yet">
                             <div className="stage-manager">
                                 <StageManagerIcon />
-                                <span className="manager-text">Stage</span>
+                                <span className="manager-text" >Stage</span>
                                 <span className="manager-text">Manager</span>
                             </div>
                             <div 
@@ -145,18 +149,18 @@ const handleChange = (event) => {
                             </div>
                             <input
                                 type="range"
-                                min="0"
+                                min="70"
                                 max="100"
                                 value={brightness}
                                 onChange={handleChange}
                                 className="slider"
                                 style={{
-                                    background: `linear-gradient(to right, white ${brightness}%, #d1d1d1 ${brightness}%)`,
+                                    background: `linear-gradient(to right, white ${(brightness - 70) / 30 * 100}%,rgba(141, 140, 140,0.7) ${(brightness - 70) / 30 * 100}%`,
                                 }}
                             />
                             <div
                                 className="slider-thumb"
-                                style={{ transform: `translateX(${brightness * 2.3}px)` }}
+                                style={{ transform: `translateX(${(brightness-70) * 2.3}px)` }}
                             ></div>
                         </div>
                 </div>    
@@ -178,7 +182,7 @@ const handleChange = (event) => {
                                 onChange={handleVolumeChange}
                                 className="slider-volume"
                                 style={{
-                                    background: `linear-gradient(to right, white ${volume}%, #d1d1d1 ${brightness}%)`,
+                                    background: `linear-gradient(to right, white ${volume}%,rgba(141, 140, 140,0.7) ${volume}%)`,
                                 }}
                             />
                             <div
