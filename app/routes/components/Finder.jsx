@@ -9,11 +9,21 @@ import Achievements from '../components/Achievements'
 
 import { useEffect, useState } from 'react';
 
-export default function Finder({onClose}){
-const [selectedFolderId, setSelectedFolderId] = useState(1);
+export default function Finder({onClose , folderId}){
+const [selectedFolderId, setSelectedFolderId] = useState(folderId || 1);
 const [isExpanded, setIsExpanded] = useState(false);
 const [selectedTagId, setSelectedTagId] = useState(null);
 
+useEffect(() => {
+    if (folderId !== undefined && folderId !== selectedFolderId) {
+      setSelectedFolderId(folderId);
+    }
+    else
+    {
+        setSelectedFolderId(1);
+
+    }
+  }, [folderId]);
 
 const handleButtonClose = () =>
 {

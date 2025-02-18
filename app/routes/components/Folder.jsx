@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function Folder(){
+export default function Folder({filename}){
     const [FileClick,setFileClick ] = useState(false);
 
     const handleFileClick = () =>{
@@ -21,7 +21,7 @@ export default function Folder(){
             onClick={handleFileClick}
             className={`folder-image ${FileClick ? "active" : ""}`} src="/folder.png"></img>
             <span
-             className={`folder-name-text ${FileClick ? "active" : ""}`}>Projects</span>
+             className={`folder-name-text ${FileClick ? "active" : ""}`}>{filename}</span>
         </div>
     )
 }

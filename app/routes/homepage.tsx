@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState ,useContext } from "react";
 import sdk from "@stackblitz/sdk"
 import { useLocation } from "@remix-run/react";
 import "/app/routes/styles/homepage.scss"
@@ -12,11 +12,13 @@ import "app/routes/styles/Certification.scss"
 import "app/routes/styles/Projects.scss"
 import "app/routes/styles/BatteryMenu.scss"
 import "app/routes/styles/ControlCenter.scss"
+import "app/routes/styles/SendAMessage.scss"
 import Folder from './components/Folder'
 import Finder from './components/Finder'
 import AppleLogoMenu from './components/AppleLogoMenu'
 import BatteryMenu from './components/BatteryMenu'
 import ControlCenter from './components/ControlCenter'
+import SendAMessage from './components/SendAMessage'
 import AppleLogoIcon from './icons/AppleLogoIcon'
 import BatteryIcon from './icons/BatteryIcon'
 import SearchIcon from './icons/SearchIcon'
@@ -25,12 +27,11 @@ import ControlCenterIcon from  './icons/ControlCenterIcon'
 import React from "react";
 import { FullScreenProvider } from "./components/FullScreenContext";
 
-
-
 export default function homepage(){
     const location = useLocation();
     const videoRef = useRef<HTMLVideoElement>(null);
     const [selectedId, setSelectedId] = useState<number | null>(null);
+    const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
     const frameWrapperRef = useRef<HTMLDivElement>(null); // Ref for draggable element
     const folderWrapperRef = useRef<HTMLDivElement>(null); // Ref for draggable element
     const [isDraggingFrame, setIsDraggingFrame] = useState(false);
@@ -45,7 +46,6 @@ export default function homepage(){
     const [appleButtonClicked,setAppleButtonClicked] = useState(false);
     const [batteryButtonClicked, setBatteryButtonClicked] = useState(false);
     const [controlCenterButtonClicked, setControlCenterButtonClicked] = useState(false);
-    const [siriButtonClicked, setSiriButtonClicked] = useState(false);
 
 
     const images = [
@@ -110,6 +110,7 @@ export default function homepage(){
 
     const handleClose = () =>{
       setSelectedId(null);
+      setSelectedFolderId(null);
     }
 
     useEffect(() => {
@@ -135,6 +136,10 @@ export default function homepage(){
     document.body.style.userSelect = "none"; // Prevent text selection during drag
   };
 
+  const handleDoubleClick = (folderId: number) => {
+    setSelectedFolderId(folderId);
+    setSelectedId(1); // Show Finder
+  };
   const handleMouseDownFolder = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!folderWrapperRef.current) return;
 
@@ -272,15 +277,42 @@ useEffect(() => {
           </div>
         )}
         {( selectedId == 1 &&
-          <Finder onClose={handleClose}/>
+          <Finder onClose={handleClose} folderId={selectedFolderId || 1}/>
         )}
-        
+        {(selectedId == 2 &&
+          <SendAMessage onClose={handleClose} />
+        )}
         <div
         ref={folderWrapperRef}
+        onDoubleClick={() => handleDoubleClick(3)}
         className="folder-wrapper"
         onMouseDown={handleMouseDownFolder}
         >
-          <Folder/>
+          <Folder filename="Projects"/>
+        </div>
+        <div
+        ref={folderWrapperRef}
+        onDoubleClick={() => handleDoubleClick(2)}
+        className="folder-wrapper-exp"
+        onMouseDown={handleMouseDownFolder}
+        >
+          <Folder filename="Experience"/>
+        </div>
+        <div
+        onDoubleClick={() => handleDoubleClick(4)}
+        ref={folderWrapperRef}
+        className="folder-wrapper-certifications"
+        onMouseDown={handleMouseDownFolder}
+        >
+          <Folder filename="Certifications"/>
+        </div>
+        <div
+        ref={folderWrapperRef}
+        onDoubleClick={() => handleDoubleClick(1)}
+        className="folder-wrapper-aboutme"
+        onMouseDown={handleMouseDownFolder}
+        >
+          <Folder filename="About Me"/>
         </div>
         <div 
         className={`frame-wrapper ${selectedId === 7 ? "visible" : "hidden"}`}
