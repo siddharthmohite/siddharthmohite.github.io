@@ -10,4 +10,19 @@
     src: url("./fonts/SFArabic.ttf") format("truetype");
     font-style: normal;
   }
+
+  @font-face {
+    font-family: 'GuardiansGalaxy';
+    src: url('/fonts/Guardians.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'GuardiansGalaxyFlood';
+  src: url('/fonts/Flood.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
   

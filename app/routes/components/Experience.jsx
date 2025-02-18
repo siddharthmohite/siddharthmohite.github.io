@@ -17,6 +17,10 @@ export default function Experience(){
         <>
         <div className="top-bar">
             <span className="title">Experience</span>
+            <div title="List View" className="view-container">
+                <img title="List View" className="view" src="/list.png">
+                </img>
+            </div>
         </div>
         <div className="info-bar">
             <span className="info-bar__name">Name</span>

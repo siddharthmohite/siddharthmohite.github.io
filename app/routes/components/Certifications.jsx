@@ -24,6 +24,10 @@ export default function Certifications(){
         <>
         <div className="top-bar">
             <span className="title">Certifications</span>
+            <div title="Gallery View" className="view-container">
+                <img title="Gallery View" className="view" src="/gallery.png">
+                </img>
+            </div>
         </div>
         <div className="certification-container">
             <div className="certification-photo-container">
