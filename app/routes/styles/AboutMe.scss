@@ -1,15 +1,14 @@
-@import url('/app/routes/styles/fonts');
+
 .top-bar{
     display: flex;
     height: 4rem;
     background-color: rgb(243, 239, 239);
 }
 @font-face {
-    font-family: 'GuardiansGalaxy';
-    src: url('/app/routes/styles/fonts/Guardians.woff2') format('woff2');
-    font-weight: normal;
+    font-family: "SF-Pro Medium";
+    src: url("./fonts/SF-Pro-Text-Medium.otf") format("truetype");
     font-style: normal;
-}
+  }
 
 @font-face {
     font-family: 'GuardiansGalaxyFlood';
@@ -54,7 +53,8 @@
     background: url('/backdrop3.jpg') no-repeat center center/cover;
     padding: 50px;
     border-radius: 5px;
-    margin: 2rem;
+    margin: 1rem;
+    line-height: 1.9rem;
 }
 .me{
     width: 100%;
@@ -63,23 +63,23 @@
 }
 
 .introduction{
-    // font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
-    font-family: 'GuardiansGalaxy';
-    font-size: 0.7rem;
+    font-family: "SF-Pro Medium";
+    font-size: 1.1rem;
     margin:1rem;
     margin-bottom:1rem;
     font-weight: 400;
     color:rgb(246, 245, 245);
-    line-height: 1.3rem;
+    word-spacing: 0.1rem;
 }
 
 .introduction-1{
-    font-family: 'GuardiansGalaxy';
-    font-size: 0.7rem;
+    font-family: "SF-Pro Medium";
+    font-size: 1.1rem;  
     margin-left:1rem;
     font-weight: 400;
     color:rgb(246, 245, 245);
     margin-bottom: 1.5rem;
+    word-spacing: 0.1rem;
 }
 
 .introduction-ending{
@@ -88,4 +88,5 @@
     margin-left:1rem;
     font-weight: 400;
     color:rgb(246, 245, 245);
+    align-self: flex-end;
 }

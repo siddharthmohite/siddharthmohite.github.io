@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "SF-Pro Medium";
+  src: url("./fonts/SF-Pro-Text-Medium.otf") format("truetype");
+  font-style: normal;
+}
 .menu-container{
   display:flex;
   flex-direction: column;
@@ -6,6 +11,7 @@
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
   height:fit-content;
   z-index:50;
   position: relative; /* Create stacking context */
@@ -16,16 +22,26 @@
   height: 1px;
   background-color: rgba(0, 0, 0, 0.1); /* Light gray */
   margin-left: 0.4rem; /* Spacing above and below */
+  margin-top: 0.1rem;
 }   
 
 .text{
 font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
 font-size: 0.84rem;
-font-weight: 350;
-color:black;
+font-weight: 100;
+color:rgba(0,0,0,0.7);
 z-index:50;
 mix-blend-mode: normal;
-margin-left: 0.6rem;
+margin-left: 0.4rem;
 margin-top: 0.5rem;
 cursor:pointer;
+padding: 1.3px;
+padding-left: 5px;
+}
+.text:hover{
+  padding:1.3px;
+  padding-left: 5px;
+  background-color: rgba(42,98,217);
+  border-radius: 5px;
+  color:white;
 }
