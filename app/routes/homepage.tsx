@@ -13,12 +13,16 @@ import "app/routes/styles/Projects.scss"
 import "app/routes/styles/BatteryMenu.scss"
 import "app/routes/styles/ControlCenter.scss"
 import "app/routes/styles/SendAMessage.scss"
+import "app/routes/styles/Calculator.scss"
+import "app/routes/styles/Blog.scss"
 import Folder from './components/Folder'
 import Finder from './components/Finder'
 import AppleLogoMenu from './components/AppleLogoMenu'
 import BatteryMenu from './components/BatteryMenu'
 import ControlCenter from './components/ControlCenter'
 import SendAMessage from './components/SendAMessage'
+import Calculator from './components/Calculator'
+import Blog from './components/Blog'
 import AppleLogoIcon from './icons/AppleLogoIcon'
 import BatteryIcon from './icons/BatteryIcon'
 import SearchIcon from './icons/SearchIcon'
@@ -282,6 +286,14 @@ useEffect(() => {
         {(selectedId == 2 &&
           <SendAMessage onClose={handleClose} />
         )}
+        ({
+          selectedId == 6 &&
+          <Calculator />
+        })
+        ({
+          selectedId == 3 &&
+          <Blog onClose={handleClose}/>
+        })
         <div
         ref={folderWrapperRef}
         onDoubleClick={() => handleDoubleClick(3)}

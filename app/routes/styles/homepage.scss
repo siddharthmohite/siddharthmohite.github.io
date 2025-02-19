@@ -88,6 +88,12 @@
   z-index: -1; /* Send background to back */
 }
 
+.calculator{
+  z-index:50;
+  // height: 30vh;
+  // width: 20vw;
+}
+
 .background-video{
     width: 100%;
     height: 100%;
