@@ -15,6 +15,7 @@ import "app/routes/styles/ControlCenter.scss"
 import "app/routes/styles/SendAMessage.scss"
 import "app/routes/styles/Calculator.scss"
 import "app/routes/styles/Blog.scss"
+import "app/routes/styles/SpotLightSearch.scss"
 import Folder from './components/Folder'
 import Finder from './components/Finder'
 import AppleLogoMenu from './components/AppleLogoMenu'
@@ -23,6 +24,7 @@ import ControlCenter from './components/ControlCenter'
 import SendAMessage from './components/SendAMessage'
 import Calculator from './components/Calculator'
 import Blog from './components/Blog'
+import SpotLightSearch from './components/SpotLightSearch'
 import AppleLogoIcon from './icons/AppleLogoIcon'
 import BatteryIcon from './icons/BatteryIcon'
 import SearchIcon from './icons/SearchIcon'
@@ -49,6 +51,7 @@ export default function homepage(){
     const [currentTimeState, setCurrentTimeState] = useState("");
     const [appleButtonClicked,setAppleButtonClicked] = useState(false);
     const [batteryButtonClicked, setBatteryButtonClicked] = useState(false);
+    const [searchButtonClicked, setSearchButtonClicked] = useState(false);
     const [controlCenterButtonClicked, setControlCenterButtonClicked] = useState(false);
 
 
@@ -85,7 +88,11 @@ export default function homepage(){
     const handleBatteryButtonClick = () =>{
 
       setBatteryButtonClicked(!batteryButtonClicked);
-    } 
+    }
+    const handleSearchButtonClick = () =>{
+      setSearchButtonClicked(!searchButtonClicked);
+      console.log("search button clicked", searchButtonClicked)
+    }
 
     const handleControlButtonClick = () =>{
 
@@ -273,6 +280,10 @@ useEffect(() => {
             <BatteryMenu />
           </div>
         })
+        ({
+          searchButtonClicked &&
+            <SpotLightSearch />
+        })
         {( controlCenterButtonClicked &&
            <div className="controlcenter-container">
             {/* <FullScreenProvider> */}
@@ -379,9 +390,10 @@ useEffect(() => {
               <div className="overlay-topbar__wifi">
                 <WifiIcon  fill="rgba(0,0,0,1)" height="20px" width="20px"/>
               </div>
-              <div 
+              <div
+              onClick={handleSearchButtonClick} 
               className="overlay-topbar__search">
-                <SearchIcon />
+                <SearchIcon dimension="18px" />
               </div>
               <div 
               onClick={handleControlButtonClick}
