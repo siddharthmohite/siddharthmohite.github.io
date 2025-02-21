@@ -11,9 +11,11 @@ import AudioPlayIcon from "../icons/AudioPlayIcon"
 import AudioNextIcon from "../icons/AudioNextIcon"
 import AudioPauseIcon from "../icons/AudioPauseIcon"
 import { FullScreenContext } from "./FullScreenContext";
+import AudioPlayerContext from './AudioPlayerContext';
+import audioManager from '../components/audioManager'
 import "../styles/ControlCenter.scss"
 import { useState, useRef, useContext, useEffect} from "react"
-import React from "react"
+
 export default function ControlCenter(){
 
 const connectivity =[
@@ -22,25 +24,27 @@ const connectivity =[
     {id:3, Icon1: <AirDropIcon />, textbig: "Airdrop",textsmall: "Contacts Only" },
 ]
 
-const audioList = [
-    {
-        src: "audio1.mp3",
-        title: "This is helpful while coding pt.1",
-        description: "Lo-Fi लो-फाई (siddharth's playlist)"
-    },
-    {
-        src: "audio2.mp3",
-        title: "This is helpful while coding pt.2",
-        description: "Lo-Fi लो-फाई (siddharth's playlist)"
-    }
-];
-const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-const [isPlaying, setIsPlaying] = useState(false);
+// const audioList = [
+//     {
+//         src: "audio1.webm",
+//         title: "This is helpful while coding pt.1",
+//         description: "Lo-Fi लो-फाई (siddharth's playlist)"
+//     },
+//     {
+//         src: "audio2.webm",
+//         title: "This is helpful while coding pt.2",
+//         description: "Lo-Fi लो-फाई (siddharth's playlist)"
+//     }
+// ];
+// const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+// const [isPlaying, setIsPlaying] = useState(false);
 const [volume, setVolume] = useState(70); 
 const audioRef = useRef(null);
 const [selectedItems, setSelectedItems] = useState({});
 const [brightness, setBrightness] = useState(100);
 const {fullScreenSelected, toggleFullScreen } = useContext(FullScreenContext);
+const { isPlaying, handlePlayPause, handleNext, currentTrackIndex, audioList } = useContext(AudioPlayerContext);
+
 
 const handleVolumeChange = (e) => {
     const newVolume = e.target.value;
@@ -50,22 +54,27 @@ const handleVolumeChange = (e) => {
     }
 };
 
-const handlePlayPause = () => {
-    if (audioRef.current) {
-        if (isPlaying) {
-            audioRef.current.pause();
-        } else {
-            audioRef.current.currentTime = 0; 
-            audioRef.current.play();
-        }
-        setIsPlaying(!isPlaying);
-    }
-};
+// const handlePlayPause = () => {
+//     if (audioRef.current) {
+//         if (isPlaying) {
+//             audioManager.pause();
+//         } else {
+//             // audioRef.current.currentTime = 0; 
+//             // audioRef.current.play();
+//             audioManager.play(audioList[currentTrackIndex].src);
+//         }
+//         setIsPlaying(!isPlaying);
+//     }
+// };
 
-const handleNext = () => {
-    setCurrentTrackIndex((prevIndex) => (prevIndex + 1) % audioList.length);
-    setIsPlaying(false); 
-};
+// const handleNext = () => {
+//     // setCurrentTrackIndex((prevIndex) => (prevIndex + 1) % audioList.length);
+//     // setIsPlaying(false); 
+//     const nextIndex = (currentTrackIndex + 1) % audioList.length;
+//     setCurrentTrackIndex(nextIndex);
+//     audioManager.play(audioList[nextIndex].src);
+//     setIsPlaying(true);
+// };
 
 const handleLofiWebsite = () =>{
     window.open("https://lofigirl.com/releases/sleeping-soul/", "");

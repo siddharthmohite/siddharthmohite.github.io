@@ -18,6 +18,7 @@ import WifiIcon from './icons/WifiIcon'
 import ControlCenterIcon from  './icons/ControlCenterIcon'
 import React from "react";
 import { FullScreenProvider } from "./components/FullScreenContext";
+import { AudioPlayerProvider } from './components/AudioPlayerContext';
 
 export default function homepage(){
     const location = useLocation();
@@ -248,6 +249,7 @@ useEffect(() => {
     
 
     return(
+      <AudioPlayerProvider>
       <FullScreenProvider>  
     <div className="homepage-container">
         <img
@@ -426,6 +428,7 @@ useEffect(() => {
         ))}
         </div>
     </div>
-    </FullScreenProvider>  
+    </FullScreenProvider>
+    </AudioPlayerProvider>
     );
 }
