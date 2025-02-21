@@ -7,10 +7,10 @@ import Projects from '../components/Projects'
 import Certifications from '../components/Certifications'
 import Achievements from '../components/Achievements'
 import "../styles/Finder.scss";
-
 import { useEffect, useState } from 'react';
 
 export default function Finder({onClose , folderId}){
+
 const [selectedFolderId, setSelectedFolderId] = useState(folderId || 1);
 const [isExpanded, setIsExpanded] = useState(false);
 const [selectedTagId, setSelectedTagId] = useState(null);
@@ -23,7 +23,6 @@ useEffect(() => {
     else
     {
         setSelectedFolderId(1);
-
     }
   }, [folderId]);
 
@@ -60,16 +59,11 @@ const tags = [
                     <button 
                     onClick={handleButtonClose}
                     className="sidebar__buttons-close">
-
                     </button>
-                    <button className={`sidebar__buttons-min ${isExpanded ? 'active' : ''}`}>
-                        
-                    </button>
+                    <button className={`sidebar__buttons-min ${isExpanded ? 'active' : ''}`}/>
                     <button 
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="sidebar__buttons-max">
-                        
-                    </button>
+                    className="sidebar__buttons-max"/>
                 </div>
                 <div className='overflowy-wrapper'>
                 <span className="sidebar__favorites-text">
@@ -81,14 +75,14 @@ const tags = [
                     title={folder.text}
                     key={folder.id}
                     className="sidebar__folder-holder">
-                                    <div 
-                                    onClick={() => {setSelectedFolderId(folder.id); setSelectedTagId(null);}}
-                                    className={`sidebar__folder-item ${selectedFolderId === folder.id ? 'selected' : ''}`}>
-                                        <FolderIcon/>
-                                        <span className="sidebar__folder-item-text">
-                                            {folder.text}
-                                        </span>
-                                    </div>      
+                        <div 
+                        onClick={() => {setSelectedFolderId(folder.id); setSelectedTagId(null);}}
+                        className={`sidebar__folder-item ${selectedFolderId === folder.id ? 'selected' : ''}`}>
+                            <FolderIcon/>
+                            <span className="sidebar__folder-item-text">
+                                {folder.text}
+                            </span>
+                        </div>      
                     </div>
                 ))}
                 </div>
@@ -101,14 +95,14 @@ const tags = [
                     title={tag.text}
                     key={tag.id}
                     className="sidebar__tag-holder">
-                                    <div 
-                                    onClick={() => {setSelectedTagId(tag.id); setSelectedFolderId(null);}}
-                                    className={`sidebar__tag-item ${selectedTagId === tag.id ? 'selected' : ''}`}>
-                                        <ColoredCircle color= {tag.color}/>
-                                        <span className="sidebar__tag-item-text">
-                                            {tag.text}
-                                        </span>
-                                    </div>      
+                        <div 
+                        onClick={() => {setSelectedTagId(tag.id); setSelectedFolderId(null);}}
+                        className={`sidebar__tag-item ${selectedTagId === tag.id ? 'selected' : ''}`}>
+                            <ColoredCircle color= {tag.color}/>
+                            <span className="sidebar__tag-item-text">
+                                {tag.text}
+                            </span>
+                        </div>      
                     </div>
                 ))}
                 </div>

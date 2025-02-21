@@ -5,16 +5,8 @@ export default function Folder({filename}){
     const [FileClick,setFileClick ] = useState(false);
 
     const handleFileClick = () =>{
-        console.log("handleFileClick Clicked");
-        console.log()
         setFileClick(!FileClick);
     }
-
-    useEffect(()=>{
-
-        console.log("File Click: ",FileClick)
-    },[FileClick]);
-
 
     return(
         <div className="folder-image-container">

@@ -1,10 +1,8 @@
-// AudioPlayerContext.js
 import React, { createContext, useState, useRef, useEffect } from 'react';
 
 const AudioPlayerContext = createContext();
 
 export const AudioPlayerProvider = ({ children }) => {
-  // Define your list of audio tracks.
   const audioList = [
     {
         src: "audio1.webm",
@@ -22,13 +20,11 @@ export const AudioPlayerProvider = ({ children }) => {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const audioRef = useRef(null);
 
-  // Whenever the track index changes, update the audio source.
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.pause();
     }
     audioRef.current = new Audio(audioList[currentTrackIndex].src);
-    // Optionally, resume playing if the previous track was playing.
     if (isPlaying) {
       audioRef.current.play();
     }
@@ -40,7 +36,6 @@ export const AudioPlayerProvider = ({ children }) => {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      // Optionally reset to start if needed:
       audioRef.current.currentTime = 0;
       audioRef.current.play();
       setIsPlaying(true);
@@ -48,10 +43,8 @@ export const AudioPlayerProvider = ({ children }) => {
   };
 
   const handleNext = () => {
-    // Calculate the next track index and update the state.
     const nextIndex = (currentTrackIndex + 1) % audioList.length;
     setCurrentTrackIndex(nextIndex);
-    // The useEffect hook will handle updating the audio source.
   };
 
   return (

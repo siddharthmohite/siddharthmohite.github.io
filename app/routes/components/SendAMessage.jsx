@@ -5,8 +5,7 @@ import "../styles/SendAMessage.scss";
 export default function SendAMessage({onClose}){
 
 const [isExpanded, setIsExpanded] = useState(false);
-const formRef = useRef(null); 
-const [status, setStatus] = useState(null); // Store response message
+const [status, setStatus] = useState(null);
 const [loading, setLoading] =useState(false);
 const [formData, setFormData] = useState({
     from: "",
@@ -19,7 +18,7 @@ const handleChange = (e) => {
 };
 
 const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default page reload
+    e.preventDefault();
     setLoading(true);
     const data = new FormData();
     data.append("from", formData.from);
@@ -36,7 +35,7 @@ const handleSubmit = async (e) => {
 
         if (result.success) {
             setStatus({ type: "success", message: "Message sent successfully!" });
-            setFormData({ from: "", subject: "", message: "" }); // Clear form after submission
+            setFormData({ from: "", subject: "", message: "" });
         } else {
             setStatus({ type: "error", message: "Failed to send message. Try again!" });
         }
@@ -77,11 +76,6 @@ const handleButtonClose = () =>
                     <button onClick={handleSubmit} title="Send" className="send-email">
                     {loading ? <div className="spinner"></div> : <SendEmailIcon />}
                     </button>  
-                    {/* {status && (
-                <div className={`response-message ${status.type}`}>
-                    {status.message}
-                </div>
-            )}  */}
             </div>
             <div className="mail-sender-content">
                 <div className="input-container">

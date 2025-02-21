@@ -25,8 +25,8 @@ export default function homepage(){
     const videoRef = useRef<HTMLVideoElement>(null);
     const [selectedId, setSelectedId] = useState<number | null>(null);
     const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
-    const frameWrapperRef = useRef<HTMLDivElement>(null); // Ref for draggable element
-    const folderWrapperRef = useRef<HTMLDivElement>(null); // Ref for draggable element
+    const frameWrapperRef = useRef<HTMLDivElement>(null);
+    const folderWrapperRef = useRef<HTMLDivElement>(null); 
     const [isDraggingFrame, setIsDraggingFrame] = useState(false);
     const [isDraggingFolder, setIsDraggingFolder] =useState(false);
     const [offSetFolder, setOffSetFolder] = useState({x : 0, y : 0});
@@ -88,17 +88,15 @@ export default function homepage(){
     } 
 
     const handleImageClick = (id: number) => {
-        setSelectedId(id); // Update the selected ID when an image is clicked
-
-        // Find the element and add the animate class
+        setSelectedId(id);
         const element = document.querySelector(
           `.overlay-downbar__icons-container[data-id="${id}"]`
         );
         if (element) {
           element.classList.add("animate");
           setTimeout(() => {
-            element.classList.remove("animate"); // Remove the class after animation ends
-          }, 800); // Match animation duration (0.8s)
+            element.classList.remove("animate");
+          }, 800);
         }
       };
     
@@ -112,14 +110,13 @@ export default function homepage(){
     }
 
     useEffect(() => {
-        const { timestamp } = location.state || {}; // Get the timestamp from state
+        const { timestamp } = location.state || {};
         if (videoRef.current && timestamp !== undefined) {
-          videoRef.current.currentTime = timestamp; // Set the video time
-          videoRef.current.pause(); // Pause the video at the given timestamp
+          videoRef.current.currentTime = timestamp; 
+          videoRef.current.pause(); 
         }
       }, [location]);
     
-      // Drag Handlers for the Window
   const handleMouseDownFrame = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!frameWrapperRef.current) return;
 
@@ -130,13 +127,12 @@ export default function homepage(){
       y: e.clientY - rect.top,
     });
 
-
-    document.body.style.userSelect = "none"; // Prevent text selection during drag
+    document.body.style.userSelect = "none";
   };
 
   const handleDoubleClick = (folderId: number) => {
     setSelectedFolderId(folderId);
-    setSelectedId(1); // Show Finder
+    setSelectedId(1);
   };
   const handleMouseDownFolder = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!folderWrapperRef.current) return;
@@ -148,7 +144,7 @@ export default function homepage(){
       y: e.clientY - rect.top,
     });
 
-    document.body.style.userSelect = "none"; // Prevent text selection during drag
+    document.body.style.userSelect = "none";
   };
 
   
@@ -173,12 +169,12 @@ export default function homepage(){
 
 const handleMouseUpFrame = () => {
   setIsDraggingFrame(false);
-  document.body.style.userSelect = ""; // Re-enable text selection
+  document.body.style.userSelect = ""; 
 };
 
 const handleMouseUpFolder = () => {
   setIsDraggingFolder(false);
-  document.body.style.userSelect = ""; // Re-enable text selection
+  document.body.style.userSelect = "";
 };
 
 useEffect( () =>
@@ -217,7 +213,6 @@ useEffect(() => {
     };
   }, [isDraggingFrame, isDraggingFolder]);
   
-
       useEffect(() => {
         
         sdk.embedProject(
@@ -329,16 +324,16 @@ useEffect(() => {
         ref={frameWrapperRef}
         style={{
           position: "absolute",
-          top: isExpanded ? "0": "60px", // Initial top position
-          left:isExpanded ? "0": "100px", // Initial left position
+          top: isExpanded ? "0": "60px",
+          left:isExpanded ? "0": "100px", 
           width: isExpanded ? "100%": "60%",
           height: isExpanded ? "100%": "650px",
           maxWidth: isExpanded ? "100vw" : "",
           maxHeight: isExpanded ? "100vh" : "",
           zIndex: 10,
-          backgroundColor: "rgba(50, 50, 51, 0.95)", // Background color
+          backgroundColor: "rgba(50, 50, 51, 0.95)",
           paddingTop: "10px",
-          cursor: "grab", // Show grab cursor
+          cursor: "grab", 
           borderRadius: "5px",
         }}
         onMouseDown={handleMouseDownFrame}

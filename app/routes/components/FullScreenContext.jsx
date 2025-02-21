@@ -7,7 +7,6 @@ export const FullScreenProvider = ({ children }) => {
 
     const toggleFullScreen = () => {
         if (!fullScreenSelected) {
-            // Enter Full-Screen Mode
             if (document.documentElement.requestFullscreen) {
                 document.documentElement.requestFullscreen();
             } else if (document.documentElement.mozRequestFullScreen) {
@@ -18,7 +17,6 @@ export const FullScreenProvider = ({ children }) => {
                 document.documentElement.msRequestFullscreen();
             }
         } else {
-            // Exit Full-Screen Mode
             if (document.exitFullscreen) {
                 document.exitFullscreen();
             } else if (document.mozCancelFullScreen) {
@@ -33,7 +31,6 @@ export const FullScreenProvider = ({ children }) => {
         setFullScreenSelected(!fullScreenSelected);
     };
 
-    // Effect to handle exiting full-screen manually
     useEffect(() => {
         const handleFullScreenChange = () => {
             if (!document.fullscreenElement) {

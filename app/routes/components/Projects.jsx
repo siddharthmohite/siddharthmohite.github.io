@@ -2,10 +2,9 @@ import { useState } from "react";
 import "../styles/Projects.scss";
 
 export default function Projects(){
-
-const [selectedProject, setSelectedProject] = useState(null);    
+const [selectedProject, setSelectedProject] = useState(null);
+    
 const projects =[
-
     {id:1, name: "RagVec", link:"https://github.com/siddharthmohite/RagVec" , img:"/ragvec.png"},
     {id:2, name: "Titan Organize", link:"https://github.com/siddharthmohite/TitanOrganize" , img:"/titanorganize.jpg"},
     {id:3, name: "Trail Buddy", link:"https://github.com/siddharthmohite/BikeTrail" , img:"/trailbuddy.jpeg"},

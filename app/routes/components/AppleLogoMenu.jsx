@@ -1,37 +1,26 @@
 import "../styles/AppleLogoMenu.scss";
-
+import React from "react";
 export default function AppleLogoMenu(){
 
-    return (
-
-       <div className="menu-container">
-            <span className="text">
-                About Me
-            </span>
-            <div className="divider"></div>
-            <span className="text">
-                View Projects
-            </span>
-            <span className="text">
-                View Work Experience
-            </span>
-            <span className="text">
-                Certificates
-            </span>
-            <div className="divider"></div>
-            <span className="text">
-                Read Blogs Here
-            </span>
-            <div className="divider"></div>
-            <span className="text">
-                Sleep
-            </span>
-            <span className="text">
-                Lock Screen
-            </span>
-            <span className="text">
-                Shutdown
-            </span>
-       </div>
-    )
+        const menuGroups = [
+            ["About Me"],
+            ["View Projects", "View Work Experience", "Certificates"],
+            ["Read Blogs Here"],
+            ["Sleep", "Lock Screen", "Shutdown"],
+          ];
+          
+          return (
+            <div className="menu-container">
+              {menuGroups.map((group, groupIdx) => (
+                <React.Fragment key={groupIdx}>
+                  {group.map((text, idx) => (
+                    <span key={idx} className="text">
+                      {text}
+                    </span>
+                  ))}
+                  {groupIdx < menuGroups.length - 1 && <div className="divider" />}
+                </React.Fragment>
+              ))}
+            </div>
+          );
 }

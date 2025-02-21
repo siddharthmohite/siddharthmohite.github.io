@@ -5,15 +5,10 @@ import "../styles/SpotLightSearch.scss";
 
 export default function SpotLightSearch()
 {
-     // Control the visibility of the overlay
      const [isOpen, setIsOpen] = useState(true);
-   
-   
-   
-     // Toggle the overlay when user presses Ctrl+Space
+
      useEffect(() => {
        const handleKeyDown = (e) => {
-         // Check for Ctrl+Space
          if (e.ctrlKey && e.code === 'Space') {
            e.preventDefault();
            setIsOpen((prev) => !prev);
@@ -23,11 +18,9 @@ export default function SpotLightSearch()
        return () => window.removeEventListener('keydown', handleKeyDown);
      }, []);
    
-     // Close the overlay and reset the search
      const handleClose = () => {
        setIsOpen(false);
      };
-   
    
   return (
     <>

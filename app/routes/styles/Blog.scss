@@ -6,11 +6,11 @@
 .container {
     display: flex;
     overflow:hidden;
-    position: fixed; /* Add this */
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 65vw;
+    width: 60vw;
     height: 65vh;
     z-index: 30;
     border-radius: 12px;
@@ -80,7 +80,6 @@
 .main-container{
     flex: 1;
     overflow-y: auto;
-    // padding: 20px;
     background-color: #ffffff;
     z-index:30;
 }
@@ -139,7 +138,7 @@
     margin: 1rem;
 }
 .blog-sneak-peek {
-    width: 14rem; /* Set a fixed width for the sneak peek */
+    width: 14rem;
     height: fit-content;
 
 }
@@ -158,7 +157,7 @@
 .blog-divider{
     width: 100%;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.1); /* Light gray */
+    background-color: rgba(0, 0, 0, 0.1);
     margin-top: 0.1rem;
     margin-right: 0.7rem;
   }
