@@ -68,15 +68,20 @@ const handleButtonClose = () =>
                     className="button-max">
                         
                     </button>
-                </div>   
+                </div>
+                {status && (
+                    <div className={`response-message ${status.type}`}>
+                    {status.message}
+                        </div>
+                    )} 
                     <button onClick={handleSubmit} title="Send" className="send-email">
                     {loading ? <div className="spinner"></div> : <SendEmailIcon />}
                     </button>  
-                    {status && (
+                    {/* {status && (
                 <div className={`response-message ${status.type}`}>
                     {status.message}
                 </div>
-            )} 
+            )}  */}
             </div>
             <div className="mail-sender-content">
                 <div className="input-container">

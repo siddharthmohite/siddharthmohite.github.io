@@ -11,6 +11,7 @@
 .mail-topbar{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     height: 4rem;
     background-color: rgb(243, 239, 239);
     border-radius: 0.5rem;
@@ -68,7 +69,7 @@
 }
 
 .send-email{
-    margin-bottom: 0.5rem;
+    margin-right:2rem;
 }
 
 .input-container,
@@ -115,7 +116,7 @@
 .response-message {
     margin-top: 10px;
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: auto;
     padding: 10px;
     text-align: center;
     font-weight: bold;

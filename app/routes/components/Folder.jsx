@@ -20,7 +20,7 @@ export default function Folder({filename}){
         <div className="folder-image-container">
             <img 
             onClick={handleFileClick}
-            className={`folder-image ${FileClick ? "active" : ""}`} src="/folder.png"></img>
+            className={`folder-image ${FileClick ? "active" : ""}`} src="/folder.webp"></img>
             <span
              className={`folder-name-text ${FileClick ? "active" : ""}`}>{filename}</span>
         </div>

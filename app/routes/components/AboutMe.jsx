@@ -10,7 +10,7 @@ export default function AboutMe(){
             <div className="main-content">
                 <div className="aboutme-text-container">
                 <div className="img-container">
-                    <img className="me" src="/groot.gif" />
+                    <img className="me" src="/groot.webp" />
                 </div>
                     <span className="introduction">
                     I'm <strong>Siddharth Mohite</strong>, a full-stack developer with a sharp eye for detail crafting UI components that don’t just function, but captivate.        

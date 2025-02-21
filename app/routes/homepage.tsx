@@ -42,14 +42,14 @@ export default function homepage(){
 
 
     const images = [
-        { id: 1, src: "/finder.png", name:"Finder" },
-        { id: 2, src: "/mail.png",name:"Contact Me" },
-        { id: 3, src: "/news.png" ,name:"Blog"},
-        { id: 4, src: "/terminal.png" ,name:"Terminal"},
-        { id: 5, src: "/chrome.png",name:"Google Chrome" },
-        { id: 6, src: "/calculator.png" ,name:"Calculator"},
-        { id: 7, src: "/vscode.png",name:"Visual Studio Code"},
-        { id: 8, src: "/trash.png",name:"Trash"}
+        { id: 1, src: "/finder.webp", name:"Finder" },
+        { id: 2, src: "/mail.webp",name:"Contact Me" },
+        { id: 3, src: "/news.webp" ,name:"Blog"},
+        { id: 4, src: "/terminal.webp" ,name:"Terminal"},
+        { id: 5, src: "/chrome.webp",name:"Google Chrome" },
+        { id: 6, src: "/calculator.webp" ,name:"Calculator"},
+        { id: 7, src: "/vscode.webp",name:"Visual Studio Code"},
+        { id: 8, src: "/trash.webp",name:"Trash"}
       ];
     
     const updateTime = () =>
@@ -271,16 +271,16 @@ useEffect(() => {
         })
         {( controlCenterButtonClicked &&
            <div className="controlcenter-container">
-            {/* <FullScreenProvider> */}
               <ControlCenter />
-            {/* </FullScreenProvider>   */}
           </div>
         )}
         {( selectedId == 1 &&
           <Finder onClose={handleClose} folderId={selectedFolderId || 1}/>
         )}
         {(selectedId == 2 &&
+        <div className="contact-me-container">
           <SendAMessage onClose={handleClose} />
+        </div>  
         )}
         ({
           selectedId == 6 &&
@@ -387,7 +387,7 @@ useEffect(() => {
               </div>
               <div 
               className="overlay-topbar__siri">
-                <img className="overlay-topbar__siri-img" src="/Siri.png"/>
+                <img className="overlay-topbar__siri-img" src="/Siri.webp"/>
               </div>
               <span className="overlay-topbar__day-text">
                 {dayState}  {monthState} {dateState}
@@ -415,7 +415,7 @@ useEffect(() => {
                     <img 
                     src={image.src}
                     alt={`Image ${image.id}`}
-                    data-id={image.id} //
+                    data-id={image.id} 
                     className="overlay-downbar__image"></img>
                     {selectedId == image.id &&(
                         <div className="overlay-downbar__image-notifier"/>

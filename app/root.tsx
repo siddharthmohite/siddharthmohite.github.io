@@ -10,6 +10,21 @@ import type { LinksFunction } from "@remix-run/node";
 import "./tailwind.css";
 
 export const links: LinksFunction = () => [
+  {
+    rel: "preload",
+    href: "/folder.webp",
+    as: "image",
+  },
+  {
+    rel: "preload",
+    href: "/wallpaper.webp",
+    as: "image",
+  },
+  {
+    rel: "preload",
+    href: "/basketball2.webp",
+    as: "image",
+  },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
