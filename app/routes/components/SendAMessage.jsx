@@ -1,5 +1,7 @@
 import SendEmailIcon from "../icons/SendEmailIcon"
 import { useState ,useRef } from "react";
+import "../styles/SendAMessage.scss";
+
 export default function SendAMessage({onClose}){
 
 const [isExpanded, setIsExpanded] = useState(false);

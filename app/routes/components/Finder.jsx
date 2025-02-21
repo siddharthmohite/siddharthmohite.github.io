@@ -6,6 +6,7 @@ import Experience from '../components/Experience'
 import Projects from '../components/Projects'
 import Certifications from '../components/Certifications'
 import Achievements from '../components/Achievements'
+import "../styles/Finder.scss";
 
 import { useEffect, useState } from 'react';
 
@@ -15,7 +16,8 @@ const [isExpanded, setIsExpanded] = useState(false);
 const [selectedTagId, setSelectedTagId] = useState(null);
 
 useEffect(() => {
-    if (folderId !== undefined && folderId !== selectedFolderId) {
+    console.log("folderId", folderId);
+    if (folderId !== undefined) {
       setSelectedFolderId(folderId);
     }
     else

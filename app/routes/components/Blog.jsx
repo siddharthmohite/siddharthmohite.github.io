@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import '../styles/Blog.scss';
+
 export default function Blog({onClose}) {
     const [isExpanded, setIsExpanded] = useState(false);
 

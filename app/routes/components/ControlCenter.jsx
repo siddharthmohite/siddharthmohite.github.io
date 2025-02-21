@@ -11,6 +11,7 @@ import AudioPlayIcon from "../icons/AudioPlayIcon"
 import AudioNextIcon from "../icons/AudioNextIcon"
 import AudioPauseIcon from "../icons/AudioPauseIcon"
 import { FullScreenContext } from "./FullScreenContext";
+import "../styles/ControlCenter.scss"
 import { useState, useRef, useContext, useEffect} from "react"
 import React from "react"
 export default function ControlCenter(){

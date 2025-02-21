@@ -1,4 +1,5 @@
 import { useState } from "react"
+import '../styles/Experience.scss';
 
 export default function Experience(){
     const [selectedId, setSelectedId] =useState(null);

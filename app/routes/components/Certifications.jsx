@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import "../styles/Certification.scss";
+
 export default function Certifications(){
     const [currentIndex, setCurrentIndex] = useState(0);
 

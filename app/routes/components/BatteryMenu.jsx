@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/BatteryMenu.scss';
 
 export default function BatteryMenu(){
 

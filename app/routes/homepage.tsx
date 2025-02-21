@@ -2,20 +2,6 @@ import { createContext, useEffect, useRef, useState ,useContext } from "react";
 import sdk from "@stackblitz/sdk"
 import { useLocation } from "@remix-run/react";
 import "/app/routes/styles/homepage.scss"
-import "app/routes/styles/Folder.scss"
-import "app/routes/styles/Finder.scss"
-import "app/routes/styles/AppleLogoMenu.scss"
-import "app/routes/styles/AboutMe.scss"
-import "app/routes/styles/Experience.scss"
-import "app/routes/styles/Achievements.scss"
-import "app/routes/styles/Certification.scss"
-import "app/routes/styles/Projects.scss"
-import "app/routes/styles/BatteryMenu.scss"
-import "app/routes/styles/ControlCenter.scss"
-import "app/routes/styles/SendAMessage.scss"
-import "app/routes/styles/Calculator.scss"
-import "app/routes/styles/Blog.scss"
-import "app/routes/styles/SpotLightSearch.scss"
 import Folder from './components/Folder'
 import Finder from './components/Finder'
 import AppleLogoMenu from './components/AppleLogoMenu'
@@ -264,10 +250,9 @@ useEffect(() => {
     return(
       <FullScreenProvider>  
     <div className="homepage-container">
-        <video
-            ref={videoRef}
-            className="background-video"
-            src="/22sec.mp4"
+        <img
+            className="background-image"
+            src="/wallpaper.webp"
         />
         {( appleButtonClicked &&
           <div className="Menu-container">

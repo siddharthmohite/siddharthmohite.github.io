@@ -1,5 +1,6 @@
-export default function AppleLogoMenu(){
+import "../styles/AppleLogoMenu.scss";
 
+export default function AppleLogoMenu(){
 
     return (
 

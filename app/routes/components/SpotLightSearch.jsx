@@ -1,6 +1,8 @@
 
 import { useState, useEffect } from "react";
 import SearchIcon from '../icons/SearchIcon';
+import "../styles/SpotLightSearch.scss";
+
 export default function SpotLightSearch()
 {
      // Control the visibility of the overlay

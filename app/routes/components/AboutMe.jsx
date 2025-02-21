@@ -1,3 +1,4 @@
+import "../styles/AboutMe.scss";
 export default function AboutMe(){
 
 

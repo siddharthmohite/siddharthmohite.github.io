@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "../styles/Projects.scss";
+
 export default function Projects(){
 
 const [selectedProject, setSelectedProject] = useState(null);    

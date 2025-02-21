@@ -14,45 +14,33 @@ export const meta: MetaFunction = () => {
 export default function Index()
 {
   const inputRef = useRef<HTMLInputElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [dayState, setDayState] = useState("");
   const [monthState, setMonthState] = useState("");
   const [dateState, setDateState] = useState(0);
   const [currentTimeState, setCurrentTimeState] = useState("");
-  const [isFirstClick,  setIsFirstClick] = useState(false);
   const [shake, setShake] = useState(false);
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Initialize navigate hook
   const [isQuestionMClicked, setIsQuestionMClicked] = useState(false);
   const [isQuestionHovered, setIsQuestionHovered] = useState(false);
 
-
-  //Add event listeners to listen for mouse and keyboard events
   useEffect(() => {
-
-    const handleMouseClick = (event:MouseEvent) =>{
-      setIsFirstClick(true);
-    }
-
-    const handleEnterClick = (event: KeyboardEvent) => {
-      if(event.key == "Enter" && isFirstClick == false){
-        setIsFirstClick(true);
+    const handleEvent = (event: KeyboardEvent | MouseEvent) => {
+      if ("key" in event && event.key === "Enter") {
+        navigate("/homepage");
       }
-      if(event.key == "Enter" && isFirstClick == true){
-        if(password == "Hireme"){
-          navigate("/")
-        }
+      else if (event instanceof MouseEvent) {
+        navigate("/homepage");
       }
-    }
+    };
+    document.addEventListener("keydown", handleEvent);
+    document.addEventListener("click", handleEvent);
 
-  document.addEventListener("click", handleMouseClick);
-  document.addEventListener("keydown", handleEnterClick);
-
-  return () => {
-    document.removeEventListener("click", handleMouseClick);
-    document.removeEventListener("keydown", handleEnterClick);
-  };
-}, []);
+    return () => {
+      document.removeEventListener("keydown", handleEvent);
+      document.removeEventListener("click", handleEvent);
+    };
+  }, [navigate]);
 
 
   const updateTime = () =>
@@ -70,16 +58,10 @@ export default function Index()
   }
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) =>{
-    if(event.key === "Enter" && isFirstClick){
-        if(password === "Hireme" && videoRef.current){
-          const timestamp = videoRef.current.currentTime;
+    if(event.key === "Enter" ){
+       {
           navigate("/homepage", {
-            state: { timestamp } // Pass timestamp as state
           });
-        }
-        else{
-            setShake(true); // Trigger the shake effect
-            setTimeout(() => setShake(false), 300); // Remove the shake class after 300ms
         }
     }
   }
@@ -100,24 +82,12 @@ export default function Index()
     };
   },[]);
 
-  useEffect(() => {
-    if (isFirstClick && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [isFirstClick]);
-
-  
   return (
   <div className="full-screen-container">
-      <video
-        ref={videoRef}
-        className="background-video"
-        autoPlay
-        muted
-        loop={true}
-      >
-        <source src="/22sec.mp4" type="video/mp4" />
-      </video>
+      <img
+        className="background-image"
+        src="/wallpaper.webp">
+      </img>
       <div className="content-wrapper-upperpart">
         <div className="overlay-upperpart">
           <div className="overlay-upperpart__textwrapper">
@@ -135,27 +105,18 @@ export default function Index()
                   <span className="overlay-lowerpart__pass-text">Hireme</span>
                 </div>
               ) : (
-                    <img className="overlay-lowerpart__img"src="/basketball2.png"
+                    <img className="overlay-lowerpart__img"src="/basketball2.webp"
                     />
               )}
-            {!isFirstClick ? (
             <p className="overlay-lowerpart__text-username">sid</p>
-              ) : (
                 <input
                   ref = {inputRef}
-                  value={password}
+                  value="HireMe"
                   onChange={(e) => setPassword(e.target.value)}
                   onKeyDown={handleKeyDown}
                   className={`overlay-lowerpart__input ${shake ? "shake" : ""}`}
                   type="password"
                 />
-              )}
-              {isFirstClick && password && (
-                  <span className="right-icon">
-                    <CircleRightIcon />
-                  </span>
-              )}
-              {isFirstClick && (
                   <button 
                   onClick={handleQuestionMarkClick}
                   onMouseEnter={() => {
@@ -167,7 +128,6 @@ export default function Index()
                   className="question-mark">
                     <QuestionMarkIcon fill={isQuestionHovered ? "white" : "rgba(245,245,247,0.7)"} />
                   </button>
-              )}
             <p className="overlay-lowerpart__text-info">Touch ID or Enter Password</p>
           </div>
       </div>
