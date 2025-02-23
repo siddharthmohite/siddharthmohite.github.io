@@ -1,5 +1,6 @@
 .top-bar{
     width:100%;
+    overflow-x: auto;
     display: flex;
     height: 4rem;
     background-color: rgb(243, 239, 239);
@@ -34,7 +35,7 @@
         font-weight:200;
         margin: 0.6rem;
         margin-left: 2rem;
-        margin-right: 13rem;
+        margin-right: 13.5rem;
 
     }
     
@@ -44,7 +45,7 @@
         font-weight:200;
         margin: 0.6rem;
         margin-left: 0.6rem;
-        margin-right: 14.5rem;
+        margin-right: 9.5rem;
     }
     
     &__date-started{
@@ -53,7 +54,7 @@
         font-weight:200;
         margin: 0.6rem;
         margin-left: 0.6rem;
-        margin-right: 5rem;
+        margin-right: 4rem;
         white-space: nowrap;
     }
 
@@ -62,13 +63,14 @@
         height: 70%;
         width:0.3px;
         background-color: rgb(151, 151, 151,0.7);
+        z-index: 50;
     }
 
 }
 
 .exp-holder{
     display:grid;
-    grid-template-columns: 0fr 1.7fr 2.1fr 1.1fr 1fr; // Adjust column sizes as needed
+    grid-template-columns: 0fr 2.5fr 2.2fr 1.5fr 1fr; // Adjust column sizes as needed
     gap: 0.6rem; // Adds spacing between columns
     align-items: center;
     width:97%;

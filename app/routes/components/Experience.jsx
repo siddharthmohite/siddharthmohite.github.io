@@ -9,9 +9,9 @@ export default function Experience(){
     {id: 1, name:"Orange County Superior Court",position: "Software Engineer Intern", skills: ".NET, Python, FastAPI, React ", startdate:"May 31, 2024", enddate:"Present", src:"/occourt.jpeg"},
     {id: 2, name:"California State University, Fullerton",position: "Graduate Student Assistant", skills: "Excel, Accounting, Automation ", startdate:"December 25, 2023", enddate:"May 15, 2024",src:"/csuf.png"},
     {id: 3, name:"OneCommunityGlobal",position: "Software Intern", skills: "React, Javascript, Typescript", startdate:"May 20, 2024", enddate:" August 5, 2024",src:"/onecommunityglobal.jpg"},
-    {id:4, name:"Accenture",position: "Software Engineer", skills: "PowerPlatform, kafka, SQL, Database Modeling", startdate:"October 15, 2020", enddate:"July 4, 2022",src:"/Accenture.jpeg"},
+    {id:4, name:"Accenture",position: "Software Engineer", skills: "kafka, SQL, Database Modeling", startdate:"October 15, 2020", enddate:"July 4, 2022",src:"/Accenture.jpeg"},
     {id:5, name:"Tech Mahindra",position: "Software Intern", skills: "Neo4j, Python, Unity, C#", startdate:"November 19, 2019", enddate:"April 17, 2020",src:"/techmahindra.jpeg"},
-    {id:6, name:"BSNL", position: "Software Intern",skills: "TCP/IP, DHCP, DNS,Netstat, Wireshark ", startdate:"April 1, 2017", enddate:"May 31, 2017",src:"/bsnl.png"},
+    {id:6, name:"BSNL", position: "Software Intern",skills: "TCP/IP, DHCP, DNS,Netstat ", startdate:"April 1, 2017", enddate:"May 31, 2017",src:"/bsnl.png"},
    ]
 
     return(

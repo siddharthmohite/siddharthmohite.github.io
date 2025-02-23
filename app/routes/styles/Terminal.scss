@@ -1,0 +1,99 @@
+.terminal-container{
+    display: flex;
+    flex-direction: column;
+    height: 45vh;
+    width: 30vw;
+    background-color: white;
+    border-radius: 0.5rem;
+    z-index: 50;
+}
+
+.terminal-topbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    height: 2rem;
+    background-color: rgb(243, 239, 239);
+    border-radius: 0.5rem;
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+    z-index:4;
+    margin: 0.5rem;
+    margin-right: 2.5rem;
+}
+.button-close{
+    width: 10px;
+    height: 10px;
+    border:none;
+    border-radius: 50%;
+    background-color: rgb(246, 85, 71);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:default;
+    z-index:5;
+  }
+
+
+  .button-min{
+      width: 10px;
+      height: 10px;
+      border:none;
+      border-radius: 50%;
+      background-color: rgb(252, 189, 65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor:default;
+  }
+
+
+  .button-max{
+    width: 10px;
+    height: 10px;
+    border:none;
+    border-radius: 50%;
+    background-color: rgb(86, 208, 70);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:default;
+  }
+
+  .button-min.active {
+    background-color: #a5a0a0 !important;
+}
+.folder-terminal-container{
+    height: 26px;
+    width: 26px;
+    margin-left: 2rem;
+    margin-top: 0.4rem;
+}
+.terminal-title{
+    margin-right:auto;
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-weight: 900;
+    font-size: 0.84rem;
+    color:rgb(28, 28, 28);
+}
+.terminal-body{
+    margin: 0.3rem;
+    display:flex;
+    flex-direction:column;
+}
+.terminal-text{
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 0.75rem;
+    color:rgb(54, 53, 53);
+}
+
+.terminal-input{
+    margin-left: 0.2rem;
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+}

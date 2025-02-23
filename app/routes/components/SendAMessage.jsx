@@ -73,6 +73,7 @@ const handleButtonClose = () =>
                     {status.message}
                         </div>
                     )} 
+               { !status && <div className="mail-title">Send Me a Message</div> }   
                     <button onClick={handleSubmit} title="Send" className="send-email">
                     {loading ? <div className="spinner"></div> : <SendEmailIcon />}
                     </button>  

@@ -115,8 +115,8 @@
 }
 .response-message {
     margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
     padding: 10px;
     text-align: center;
     font-weight: bold;
@@ -131,6 +131,18 @@
         color: #721c24;
 
     }
+}
+.mail-title{
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    // margin-left: auto;
+    // margin-right: auto;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    white-space: nowrap;
 }
 .spinner {
     width: 20px;

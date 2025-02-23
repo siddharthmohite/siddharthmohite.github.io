@@ -10,6 +10,7 @@ import ControlCenter from './components/ControlCenter'
 import SendAMessage from './components/SendAMessage'
 import Calculator from './components/Calculator'
 import Blog from './components/Blog'
+import Terminal from './components/Terminal'
 import SpotLightSearch from './components/SpotLightSearch'
 import AppleLogoIcon from './icons/AppleLogoIcon'
 import BatteryIcon from './icons/BatteryIcon'
@@ -23,8 +24,8 @@ import { AudioPlayerProvider } from './components/AudioPlayerContext';
 export default function homepage(){
     const location = useLocation();
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [selectedId, setSelectedId] = useState<number | null>(null);
-    const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
+    const [selectedId, setSelectedId] = useState<number | null>(1);
+    const [selectedFolderId, setSelectedFolderId] = useState<number | null>(1);
     const frameWrapperRef = useRef<HTMLDivElement>(null);
     const folderWrapperRef = useRef<HTMLDivElement>(null); 
     const [isDraggingFrame, setIsDraggingFrame] = useState(false);
@@ -66,7 +67,31 @@ export default function homepage(){
           setDateState(date);
           setCurrentTimeState(current_time);
         }
-    
+
+    const handleMenuItemClick = (menuItem: string) => {
+      if (menuItem === "About Me") {
+        setSelectedId(1); // 1 opens Finder as per your existing logic
+        setSelectedFolderId(1); // Optional: ensure the correct folder is shown
+        setAppleButtonClicked(false); // Optionally close the Apple menu after selection
+      }
+      else if (menuItem === "Certificates") {
+        setSelectedId(1); // 1 opens Finder as per your existing logic
+        setSelectedFolderId(4); // Optional: ensure the correct folder is shown
+        setAppleButtonClicked(false); // Optionally close the Apple menu after selection
+      }
+      else if (menuItem === "View Work Experience") {
+        setSelectedId(1); // 1 opens Finder as per your existing logic
+        setSelectedFolderId(2); // Optional: ensure the correct folder is shown
+        setAppleButtonClicked(false); // Optionally close the Apple menu after selection
+      }
+      else if (menuItem === "View Projects") {
+        setSelectedId(1); // 1 opens Finder as per your existing logic
+        setSelectedFolderId(3); // Optional: ensure the correct folder is shown
+        setAppleButtonClicked(false); // Optionally close the Apple menu after selection
+      }
+
+    };
+
     const handleAppleButtonClick = () =>{
 
       setAppleButtonClicked(!appleButtonClicked);
@@ -251,42 +276,50 @@ useEffect(() => {
             className="background-image"
             src="/wallpaper.webp"
         />
-        {( appleButtonClicked &&
+        {appleButtonClicked &&
           <div className="Menu-container">
-             <AppleLogoMenu />
+             <AppleLogoMenu onMenuItemClick={handleMenuItemClick} />
           </div>
-        )}
-        ({ batteryButtonClicked &&
+        }
+        { batteryButtonClicked &&
 
           <div className="battery-container-1">
             <BatteryMenu />
           </div>
-        })
-        ({
+        }
+        {
           searchButtonClicked &&
             <SpotLightSearch />
-        })
-        {( controlCenterButtonClicked &&
+        }
+        {controlCenterButtonClicked &&
            <div className="controlcenter-container">
               <ControlCenter />
           </div>
-        )}
-        {( selectedId == 1 &&
+        }
+        { selectedId == 1 &&
           <Finder onClose={handleClose} folderId={selectedFolderId || 1}/>
-        )}
-        {(selectedId == 2 &&
+        }
+        {selectedId == 2 &&
         <div className="contact-me-container">
           <SendAMessage onClose={handleClose} />
         </div>  
-        )}
-        ({
+        }
+        {
           selectedId == 6 &&
           <Calculator />
-        })
-        ({
+        }
+        {
           selectedId == 3 &&
           <Blog onClose={handleClose}/>
-        })
+        }
+         {
+          selectedId == 4 &&
+          <Terminal onClose={handleClose}/>
+        }
+         {
+          selectedId == 5 &&
+            <div></div>
+        }
         <div
         ref={folderWrapperRef}
         onDoubleClick={() => handleDoubleClick(3)}
