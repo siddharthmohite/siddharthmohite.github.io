@@ -24,13 +24,10 @@ export default function Experience(){
             </div>
         </div>
         <div className="info-bar">
-            <span className="info-bar__name">Name</span>
-            <div className="info-bar__divider-vertical"></div>
-            <span className="info-bar__skills">Skills</span>
-            <div className="info-bar__divider-vertical"></div>
-            <span className="info-bar__date-started">Start Date</span>
-            <div className="info-bar__divider-vertical"></div>
-            <span className="info-bar__date-started">End Date</span>
+            <div className="info-bar__name">Name</div>
+            <div className="info-bar__skills">| Skills</div>
+            <div className="info-bar__date-started">| Start Date</div>
+            <div className="info-bar__date-ended">| End Date</div>
         </div>
         <div className="divider-horizontal"></div>
         <div className="exp-container">
