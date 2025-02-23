@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../Styles/Folder.scss";
+import "../styles/Folder.scss";
 
 export default function Folder({filename}){
     const [FileClick,setFileClick ] = useState(false);
