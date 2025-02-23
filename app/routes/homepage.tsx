@@ -1,4 +1,4 @@
-import { createContext, useEffect, useRef, useState ,useContext } from "react";
+import { useEffect, useRef, useState} from "react";
 import sdk from "@stackblitz/sdk"
 import { useLocation } from "@remix-run/react";
 import "/app/routes/styles/homepage.scss"
@@ -44,6 +44,7 @@ export default function homepage(){
     const [batteryButtonClicked, setBatteryButtonClicked] = useState(false);
     const [searchButtonClicked, setSearchButtonClicked] = useState(false);
     const [controlCenterButtonClicked, setControlCenterButtonClicked] = useState(false);
+    const [topBarIconState, setTopBarIconState] = useState<number | null>(null);
 
 
     const images = [
@@ -56,6 +57,12 @@ export default function homepage(){
         { id: 7, src: "/vscode.webp",name:"Visual Studio Code"},
         { id: 8, src: "/trash.webp",name:"Trash"}
       ];
+    
+    const topbarIcons = [
+      {id:1, name:"BatteryIcon"},
+      {id:2, name:"SearchIcon"},
+      {id:3, name:"ControlCenterIcon"},
+    ]  
     
     const updateTime = () =>
         {
@@ -111,16 +118,16 @@ export default function homepage(){
     const handleBatteryButtonClick = () =>{
 
       setBatteryButtonClicked(!batteryButtonClicked);
+      setTopBarIconState(1);
     }
     const handleSearchButtonClick = () =>{
       setSearchButtonClicked(!searchButtonClicked);
-      console.log("search button clicked", searchButtonClicked)
+      setTopBarIconState(2);
     }
 
     const handleControlButtonClick = () =>{
-
+      setTopBarIconState(3);
       setControlCenterButtonClicked(!controlCenterButtonClicked);
-      console.log("control button clicked", controlCenterButtonClicked)
     } 
 
     const handleImageClick = (id: number) => {
@@ -292,17 +299,17 @@ useEffect(() => {
              <AppleLogoMenu onMenuItemClick={handleMenuItemClick} />
           </div>
         }
-        { batteryButtonClicked &&
+        { topBarIconState == 1 && batteryButtonClicked &&
 
           <div className="battery-container-1">
             <BatteryMenu />
           </div>
         }
         {
-          searchButtonClicked &&
+          topBarIconState == 2 && searchButtonClicked &&
             <SpotLightSearch />
         }
-        {controlCenterButtonClicked &&
+        {topBarIconState == 3 && controlCenterButtonClicked &&
            <div className="controlcenter-container">
               <ControlCenter />
           </div>
