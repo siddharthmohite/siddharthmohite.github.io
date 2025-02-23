@@ -6,8 +6,8 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-
 import "./tailwind.css";
+import React, { useState, useEffect } from "react";
 
 export const links: LinksFunction = () => [
   {
@@ -38,6 +38,7 @@ export const links: LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+
   return (
     <html lang="en">
       <head>
@@ -60,5 +61,40 @@ export default function App() {
 }
 
 export function HydrateFallback() {
-  return <p>Loading...</p>;
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 80) {
+          clearInterval(interval);
+          return prev;
+        }
+        return prev + 1; // Increment speed; adjust as needed.
+      });
+    }, 50); // Adjust the interval speed as needed.
+    return () => clearInterval(interval);
+  }, []);
+  return(
+<div className="bg-black min-h-screen">
+  <div className="bg-black min-h-screen relative">
+    <img
+    src="/applew.png"
+    alt="Apple Logo"
+    className="w-40 h-40 absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+    />
+  </div>
+  <div className="absolute bottom-80 left-1/2 transform -translate-x-1/2 w-64">
+        <div className="w-full bg-gray-700 rounded-full h-3">
+          <div
+            className="bg-white h-3 rounded-full"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+        {/* <p className="text-white text-center mt-2">{progress}%</p> */}
+      </div>
+  </div>
+  
+  );
+  
 }

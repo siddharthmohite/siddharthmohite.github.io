@@ -2,12 +2,11 @@ import type { MetaFunction } from "@remix-run/node";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "@remix-run/react";
 import "/app/routes/styles/index.scss";
-import CircleRightIcon from './icons/CircleRightIcon'
 import QuestionMarkIcon from './icons/QuestionMarkIcon'
 export const meta: MetaFunction = () => {
   return [
     { title: "Sid's" },
-    { name: "description", content: "Embedded video in Remix portfolio" },
+    { name: "Siddharth Mohite portfolio Website", content: "Siddharth Mohite portfolio Website" },
   ];
 };
 
