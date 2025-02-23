@@ -70,9 +70,9 @@ export function HydrateFallback() {
           clearInterval(interval);
           return prev;
         }
-        return prev + 1; // Increment speed; adjust as needed.
+        return prev + 1;
       });
-    }, 50); // Adjust the interval speed as needed.
+    }, 50);
     return () => clearInterval(interval);
   }, []);
   return(
@@ -91,7 +91,6 @@ export function HydrateFallback() {
             style={{ width: `${progress}%` }}
           ></div>
         </div>
-        {/* <p className="text-white text-center mt-2">{progress}%</p> */}
       </div>
   </div>
   
