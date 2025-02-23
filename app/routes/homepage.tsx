@@ -20,8 +20,11 @@ import ControlCenterIcon from  './icons/ControlCenterIcon'
 import React from "react";
 import { FullScreenProvider } from "./components/FullScreenContext";
 import { AudioPlayerProvider } from './components/AudioPlayerContext';
+import { useNavigate } from "@remix-run/react";
+
 
 export default function homepage(){
+    const navigate = useNavigate(); // Initialize navigate hook
     const location = useLocation();
     const videoRef = useRef<HTMLVideoElement>(null);
     const [selectedId, setSelectedId] = useState<number | null>(1);
@@ -70,24 +73,32 @@ export default function homepage(){
 
     const handleMenuItemClick = (menuItem: string) => {
       if (menuItem === "About Me") {
-        setSelectedId(1); // 1 opens Finder as per your existing logic
-        setSelectedFolderId(1); // Optional: ensure the correct folder is shown
-        setAppleButtonClicked(false); // Optionally close the Apple menu after selection
+        setSelectedId(1); 
+        setSelectedFolderId(1); 
+        setAppleButtonClicked(false);
       }
       else if (menuItem === "Certificates") {
-        setSelectedId(1); // 1 opens Finder as per your existing logic
-        setSelectedFolderId(4); // Optional: ensure the correct folder is shown
-        setAppleButtonClicked(false); // Optionally close the Apple menu after selection
+        setSelectedId(1); 
+        setSelectedFolderId(4); 
+        setAppleButtonClicked(false); 
       }
       else if (menuItem === "View Work Experience") {
-        setSelectedId(1); // 1 opens Finder as per your existing logic
-        setSelectedFolderId(2); // Optional: ensure the correct folder is shown
-        setAppleButtonClicked(false); // Optionally close the Apple menu after selection
+        setSelectedId(1);
+        setSelectedFolderId(2); 
+        setAppleButtonClicked(false); 
       }
       else if (menuItem === "View Projects") {
-        setSelectedId(1); // 1 opens Finder as per your existing logic
-        setSelectedFolderId(3); // Optional: ensure the correct folder is shown
-        setAppleButtonClicked(false); // Optionally close the Apple menu after selection
+        setSelectedId(1); 
+        setSelectedFolderId(3); 
+        setAppleButtonClicked(false); 
+      }
+      else if (menuItem === "Read Blogs Here") {
+        setSelectedId(3);
+        
+        setAppleButtonClicked(false); 
+      }
+      else if (menuItem === "Sleep" || "Lock Screen" || "Shutdown") {
+        navigate("/");
       }
 
     };
