@@ -25,18 +25,8 @@
     width: 100%;
 }
 .info-bar{
-    // display:flex;
-    // flex-direction:row;
-    // display:grid;
-    // grid-template-columns: 2.9fr 2fr 1fr 1fr; // Adjust column sizes as needed
     grid-template-columns: 2.8fr 2.2fr 1.5fr 1fr; ;
-    // align-items: center;
-    // height: 2rem;
     display: grid;
-    /* Create 4 equal-width columns */
-    // grid-template-columns: repeat(4, 0.1fr);
-    /* Optional: spacing between columns */
-    // gap: 1rem;
 
     &__name{
         font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
