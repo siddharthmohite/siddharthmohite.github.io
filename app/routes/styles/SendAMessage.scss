@@ -21,13 +21,15 @@
     display: flex;
     flex-direction: row;
     gap: 0.6rem;
+    align-items: center;
+    margin-left: 1rem!important;
     z-index:4;
-    margin: 1.5rem;
-    margin-right: 2.5rem;
+    // margin: 1.5rem;
+    // margin-right: 2.5rem;
 }
 .button-close{
-    width: 13px;
-    height: 13px;
+    width: 18px;
+    height: 18px;
     border:none;
     border-radius: 50%;
     background-color: rgb(246, 85, 71);
@@ -40,8 +42,8 @@
 
 
   .button-min{
-      width: 13px;
-      height: 13px;
+      width: 18px;
+      height: 18px;
       border:none;
       border-radius: 50%;
       background-color: rgb(252, 189, 65);
@@ -53,8 +55,8 @@
 
 
   .button-max{
-    width: 13px;
-    height: 13px;
+    width: 18px;
+    height: 18px;
     border:none;
     border-radius: 50%;
     background-color: rgb(86, 208, 70);
@@ -134,13 +136,13 @@
 }
 .mail-title{
     font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-top: 10px;
     // margin-left: auto;
-    // margin-right: auto;
+    margin-right: 3.5rem;
     padding: 10px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     border-radius: 5px;
     white-space: nowrap;
 }
