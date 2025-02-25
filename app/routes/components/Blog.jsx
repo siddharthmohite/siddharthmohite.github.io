@@ -1,8 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from "@remix-run/react";
 import '../styles/Blog.scss';
+
 
 export default function Blog({onClose}) {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [selectedBlogId, setSelectedBlogId] = useState(null);
+    const navigate = useNavigate(); 
 
     const blogs =[
     
@@ -15,7 +19,11 @@ export default function Blog({onClose}) {
     const handleButtonClose = () =>
         {
             onClose();
-        };    
+        };
+    const handleSelectedBlogId = (id) =>{
+        setSelectedBlogId(id);
+        navigate(`/blogs?blogid=${id}`);
+    }        
   return (
     <div className="container">
         <div className="sidebar">
@@ -56,7 +64,9 @@ export default function Blog({onClose}) {
                         </div>
                         <div className="blog-footer">
                             <span className="blog-date">{blog.date}</span>
-                            <button className="blog-read-more">Read More</button>
+                            <button 
+                            onClick={() => handleSelectedBlogId(blog.blogid)}
+                            className="blog-read-more">Read More</button>
                         </div>
                     </div>    
                 </div>
