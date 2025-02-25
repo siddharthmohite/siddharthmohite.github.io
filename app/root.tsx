@@ -84,10 +84,10 @@ export function HydrateFallback() {
     className="w-40 h-40 absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
     />
   </div>
-  <div className="absolute bottom-80 left-1/2 transform -translate-x-1/2 w-64">
-        <div className="w-full bg-gray-700 rounded-full h-3">
+  <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-64">
+        <div className="w-full bg-gray-700 rounded-full h-1.5">
           <div
-            className="bg-white h-3 rounded-full"
+            className="bg-white h-1.5 rounded-full"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
