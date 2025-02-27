@@ -5,11 +5,6 @@
     font-style: normal;
   }
 
-  @font-face {
-    font-family: "SF-Pro Medium";
-    src: url("./fonts/SFArabic.ttf") format("truetype");
-    font-style: normal;
-  }
 
   @font-face {
     font-family: 'GuardiansGalaxy';

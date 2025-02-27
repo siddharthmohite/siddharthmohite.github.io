@@ -10,10 +10,10 @@ export default function Blog({onClose}) {
 
     const blogs =[
     
-    {blogid: 1, title: "Python class Functions", date: "January 15, 2024", sneakpeek: "This is a blog post about python class functions. It is a very interesting topic and I hope you enjoy it.", img: "/ragvec.png"},
-    {blogid: 2, title: "Python class Functions", date: "January 15, 2024", sneakpeek: "This is a blog post about python class functions. It is a very interesting topic and I hope you enjoy it.", img: "/ragvec.png"},
-    {blogid: 3, title: "Python class Functions", date: "January 15, 2024", sneakpeek: "This is a blog post about python class functions. It is a very interesting topic and I hope you enjoy it.", img: "/ragvec.png"},
-    {blogid: 4, title: "Python class Functions", date: "January 15, 2024", sneakpeek: "This is a blog post about python class functions. It is a very interesting topic and I hope you enjoy it.", img: "/ragvec.png"},
+    {blogid: 1, title: "Instance-Level Initialization", date: "January 15, 2024", sneakpeek: "🚨 Discover how a simple instance-level mistake caused chaos in our backend!", img: "/ragvec.png"},
+    {blogid: 2, title: "Blog 2 Placeholder", date: "January 15, 2024", sneakpeek: "This is a blog post  placeholder for blog 2. It is a very interesting topic and I hope you enjoy it.", img: "/ragvec.png"},
+    {blogid: 3, title: "Blog 3 Placeholder", date: "January 11, 2024", sneakpeek: "This is a blog post placeholder for blog 3. It is a very interesting topic and I hope you enjoy it.", img: "/ragvec.png"},
+    {blogid: 4, title: "Blog 4 Placeholder", date: "January 10, 2024", sneakpeek: "This is a blog post placeholder for blog 4. It is a very interesting topic and I hope you enjoy it.", img: "/ragvec.png"},
     
     ]
     const handleButtonClose = () =>
@@ -43,7 +43,7 @@ export default function Blog({onClose}) {
                 </button>
             </div>
         </div>
-        <div className="main-container">
+        <div className="blog-main-container">
             <div className="top-bar">
                 <span className="title">Blogs</span>
             </div>

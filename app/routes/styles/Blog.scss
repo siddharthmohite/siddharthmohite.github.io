@@ -77,9 +77,10 @@
     }
 }
 
-.main-container{
+.blog-main-container{
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     background-color: #ffffff;
     z-index:30;
 }
