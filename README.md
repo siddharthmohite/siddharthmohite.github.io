@@ -1,4 +1,4 @@
-# [MacOS Sonoma Inspired Portfolio](siddharthmohite.github.io)
+# [MacOS Sonoma Inspired Portfolio](https://siddharthmohite.github.io/)
 
 ## Table of Contents  
 - [Introduction](#introduction)  
