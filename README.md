@@ -1,4 +1,5 @@
-# MacOS Sonoma Inspired Portfolio  
+# [MacOS Sonoma Inspired Portfolio](siddharthmohite.github.io)
+
 ## Table of Contents  
 - [Introduction](#introduction)  
 - [Features](#features)  
@@ -17,6 +18,8 @@
 - [Resources](#resources)  
 - [Disclaimer](#disclaimer)  
 
+## Demo
+[!watch the demo here](https://www.youtube.com/watch?v=EyimZ3TpieI)
 ## Introduction  
 
 I always wanted to build some type of cool portfolio website for myself. One day just got this random idea and in january 2025 I started to build this from scratch. It was fun to make and also a lot of learnings. Hope you like it!
@@ -37,42 +40,43 @@ So I added a bunch of features. But few other ones are still left out. Here is t
     d.News
     e.Stock Market info
 7.Terminal(Functional w/commands)
-### Apple Loading Screen  
+### Apple Loading Screen
 
+### Landing Page
 
-### Landing Page  
-  
+### Home Page
 
-### Home Page  
-  
+### Finder
 
-### Finder  
-  
-
-### Send A Message  
- 
+### Send A Message
 
 ### Terminal  
 Right Now its just UI I will add in some commands in the future
 
 ### Blogs  
-A section to showcase written content.  
+A section to showcase my learning experience.
 
-### VS Code  
-  
+### VS Code 
 
-### Apple Logo Menu  
+### Apple Logo Menu
 
 ### Battery Menu  
-Shows YOur actual battery status percentage
+Shows Your actual battery status percentage
+
 ### Control Center  
 
 ### Spotlight Search  
 
 ## Resources  
 
- 
+- [MacOS Icons and Emojis](https://icons8.com/icons/set/mac-os)  
+- [MacOS Icons](https://macosicons.com/#/)  
+- [VS Code SDK](https://stackblitz.com/edit/vscode?file=index.js)
 
 ## Disclaimer  
 
-This project is inspired by macOS Sonoma and is for personal/educational purposes only.  
+*This project is purely a personal and non-commercial endeavor, created for educational and experimental purposes only. It is in no way affiliated with, endorsed by, or intended to replicate or replace any Apple Inc. products or services. All trademarks, logos, and brand names belong to their respective owners.*  
+
+*The intention behind this project is not to copy Apple’s products but rather to explore and learn from their design language while implementing a unique and personal take on a macOS-inspired interface.
+
+*This project should not be used for commercial purposes, redistributed, or misrepresented as an official Apple product in any way. If you are an Apple representative and have any concerns, please feel free to reach out.*  
