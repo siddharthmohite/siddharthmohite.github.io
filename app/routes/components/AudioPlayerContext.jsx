@@ -16,6 +16,7 @@ export const AudioPlayerProvider = ({ children }) => {
     }
   ];
 
+  const [volume, setVolume] = useState(80); 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const audioRef = useRef(null);
@@ -47,9 +48,18 @@ export const AudioPlayerProvider = ({ children }) => {
     setCurrentTrackIndex(nextIndex);
   };
 
+  const handleVolumeChange = (event) => {
+    const newVolume = event.target.value;
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume / 100; // Update volume
+    }
+  };
+
   return (
     <AudioPlayerContext.Provider
-      value={{ isPlaying, handlePlayPause, handleNext, currentTrackIndex, audioList }}
+      value={{ isPlaying, handlePlayPause, handleNext,  volume,
+        handleVolumeChange, currentTrackIndex, audioList }}
     >
       {children}
     </AudioPlayerContext.Provider>

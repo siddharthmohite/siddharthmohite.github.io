@@ -23,21 +23,14 @@ const connectivity =[
     {id:3, Icon1: <AirDropIcon />, textbig: "Airdrop",textsmall: "Contacts Only" },
 ]
 
-const [volume, setVolume] = useState(70); 
 const audioRef = useRef(null);
 const [selectedItems, setSelectedItems] = useState({});
 const [brightness, setBrightness] = useState(100);
 const {fullScreenSelected, toggleFullScreen } = useContext(FullScreenContext);
-const { isPlaying, handlePlayPause, handleNext, currentTrackIndex, audioList } = useContext(AudioPlayerContext);
+const { isPlaying, handlePlayPause, handleNext, volume,
+    handleVolumeChange, currentTrackIndex, audioList } = useContext(AudioPlayerContext);
 
 
-const handleVolumeChange = (e) => {
-    const newVolume = e.target.value;
-    setVolume(newVolume);
-    if (audioRef.current) {
-        audioRef.current.volume = newVolume / 100;
-    }
-};
 
 
 const handleLofiWebsite = () =>{
