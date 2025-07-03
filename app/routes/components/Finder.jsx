@@ -1,7 +1,6 @@
 
 import FolderIcon from '../icons/FolderIcon'
 import ColoredCircle from '../components/ColoredCircle'
-import AboutMe from '../components/AboutMe'
 import Experience from '../components/Experience'
 import Projects from '../components/Projects'
 import Certifications from '../components/Certifications'
@@ -34,7 +33,6 @@ const handleButtonClose = () =>
 
 const folders = [
 
-    {"id": 1, "text":'About Me'},
     {"id": 2, "text":'Experience'},
     {"id": 3, "text":'Projects'},
     {"id": 4, "text":'Certifications'},
@@ -109,9 +107,6 @@ const tags = [
             </div>
             </div>
             <div className="main-container">
-            {(selectedFolderId == 1 &&
-                <AboutMe />
-            )} 
              {(selectedFolderId == 2 &&
                 <Experience />
             )}

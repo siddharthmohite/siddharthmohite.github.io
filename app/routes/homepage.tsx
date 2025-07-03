@@ -12,6 +12,7 @@ import Calculator from './components/Calculator'
 import Blog from './components/Blog'
 import Terminal from './components/Terminal'
 import SpotLightSearch from './components/SpotLightSearch'
+import IMessage from './components/IMessage'
 import AppleLogoIcon from './icons/AppleLogoIcon'
 import BatteryIcon from './icons/BatteryIcon'
 import SearchIcon from './icons/SearchIcon'
@@ -27,8 +28,8 @@ export default function homepage(){
     const navigate = useNavigate(); // Initialize navigate hook
     const location = useLocation();
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [selectedId, setSelectedId] = useState<number | null>(1);
-    const [selectedFolderId, setSelectedFolderId] = useState<number | null>(1);
+    const [selectedId, setSelectedId] = useState<number | null>(9);
+    const [selectedFolderId, setSelectedFolderId] = useState<number | null>(2);
     const frameWrapperRef = useRef<HTMLDivElement>(null);
     const folderWrapperRef = useRef<HTMLDivElement>(null); 
     const [isDraggingFrame, setIsDraggingFrame] = useState(false);
@@ -51,9 +52,8 @@ export default function homepage(){
         { id: 1, src: "/finder.webp", name:"Finder" },
         { id: 2, src: "/mail.webp",name:"Contact Me" },
         { id: 3, src: "/news.webp" ,name:"Blog"},
+        { id: 9, src: "/messages.webp" ,name:"Messages"},
         { id: 4, src: "/terminal.webp" ,name:"Terminal"},
-        { id: 5, src: "/chrome.webp",name:"Google Chrome" },
-        { id: 6, src: "/calculator.webp" ,name:"Calculator"},
         { id: 7, src: "/vscode.webp",name:"Visual Studio Code"},
         { id: 8, src: "/trash.webp",name:"Trash"}
       ];
@@ -315,7 +315,7 @@ useEffect(() => {
           </div>
         }
         { selectedId == 1 &&
-          <Finder onClose={handleClose} folderId={selectedFolderId || 1}/>
+          <Finder onClose={handleClose} folderId={selectedFolderId || 2}/>
         }
         {selectedId == 2 &&
         <div className="contact-me-container">
@@ -333,6 +333,10 @@ useEffect(() => {
          {
           selectedId == 4 &&
           <Terminal onClose={handleClose}/>
+        }
+         {
+          selectedId == 9 &&
+          <IMessage dayState={dayState} monthState={monthState} dateState={dateState} currentTime={currentTimeState} onClose={handleClose}  />
         }
          {
           selectedId == 5 &&

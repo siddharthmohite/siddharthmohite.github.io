@@ -1,0 +1,196 @@
+@font-face {
+    font-family: "SF-Pro Medium";
+    src: url("./fonts/SF-Pro-Text-Medium.otf") format("truetype");
+    font-style: normal;
+  }
+.container {
+    display: flex;
+    overflow:hidden;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 65vh;
+    z-index: 30;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.sidebar{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    background: rgba(164, 162, 162, 0.2);
+    height:100%;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    z-index:30;
+    
+    &__buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 0.6rem;
+        z-index:4;
+        margin: 1.5rem;
+        
+    }
+
+    &__buttons-close{
+      width: 13px;
+      height: 13px;
+      border:none;
+      border-radius: 50%;
+      background-color: rgb(246, 85, 71);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor:default;
+      z-index:5;
+    }
+
+
+    &__buttons-min{
+        width: 13px;
+        height: 13px;
+        border:none;
+        border-radius: 50%;
+        background-color: rgb(252, 189, 65);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor:default;
+    }
+
+
+    &__buttons-max{
+      width: 13px;
+      height: 13px;
+      border:none;
+      border-radius: 50%;
+      background-color: rgb(86, 208, 70);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor:default;
+    }
+
+    &__Message-container{
+        display:flex;
+        flex-direction: row;
+        background-color: rgb(52, 120, 246);
+        margin: 0.4rem;
+        border-radius: 0.5rem;
+        align-items: center;
+    }
+    &__Message-photo-holder{
+        display:flex;
+        align-items: center;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0.3rem;
+        margin-top: 0.5rem;
+    }
+    &__Message-photo{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__Message-info-container{
+        display:flex;
+        margin: 0.5rem;
+        flex-direction:column;
+        justify-content: center;
+        align-items: start;
+    }
+    &__Message-title{
+        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+        color:rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    &__Message-subtitle{
+        font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+        color:rgba(255, 255, 255, 0.9);
+        font-weight: 10;
+        font-size: 0.65rem;
+    }
+}
+
+.blog-main-container{
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    z-index:30;
+}
+
+.top-bar{
+    display: flex;
+    height: 4rem;
+    background-color: rgb(251, 249, 249);
+}
+.title1{
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    margin-right: 0.4rem;
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    color:rgba(166, 166, 166, 0.9);
+    font-weight: 100;
+    font-size: 1rem;
+}
+.title2{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    color:rgba(29, 29, 29, 0.9);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+
+.IMessage-center-message{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;;
+}
+
+.IMessage-title{
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    color:rgba(117, 115, 115, 0.9);
+    font-size: 0.65rem;
+    margin-top: 0.7rem;
+}
+.IMessage-date{
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    color:rgba(117, 115, 115, 0.9);
+    font-size: 0.65rem;
+}
+.Message-holder{
+    display:flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    background-color: rgb(60, 130, 246);
+    width: 50%;
+    margin-left: auto;
+    border-radius: 10px;
+    padding:10px;
+    margin-right: 0.4rem;
+    margin-top:0.4rem;
+
+}
+
+.Message-content{
+    font-family: "SF-Pro Medium",-apple-system, BlinkMacSystemFont;
+    color:rgba(255, 255, 255, 0.9);
+    font-size: 0.8rem;
+}
+.sidebar__buttons-min.active {
+    background-color: #a5a0a0 !important;
+}
