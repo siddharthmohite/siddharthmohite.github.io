@@ -53,7 +53,9 @@ export default function IMessage({ onClose ,  dayState, monthState, dateState, c
                  <div className='Message-holder'>
                     <span className='Message-content'>Hope you have a great time exploring my site welcome back and enjoy!</span>
                 </div>
-                
+                <div className='Search-bar-container'>
+                    <input type="text" className="search-bar" placeholder="iMessage" />
+                </div>
             </div> 
         </div>
     </div>    
